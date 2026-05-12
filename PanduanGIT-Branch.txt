@@ -1,0 +1,30 @@
+	Panduan GIT - Branch
+
+# Untuk menyalin proyek ke komputer
+git clone <url-repository>
+
+# Masuk ke folder proyek
+cd <nama-folder-proyek>
+
+# Pastikan Anda memiliki versi terbaru dari branch utama (biasanya bernama main atau master).
+git checkout main
+git pull origin main
+
+# Membuat branch baru dan langsung berpindah ke sana
+git checkout -b nama-branch-baru
+
+# Melihat file apa saja yang berubah
+git status
+
+# Menambahkan semua file yang berubah ke area staging
+git add .
+
+# Menyimpan perubahan dengan pesan yang jelas
+git commit -m "Deskripsi singkat perubahan yang dilakukan"
+
+# Mengunggah branch baru Anda ke server
+git push origin nama-branch-baru
+
+# Untuk mengecek posisi kita
+git branch
+git status
