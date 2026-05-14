@@ -1,0 +1,17 @@
+[Unit]
+Description=uWSGI instance to serve Flask API Kode Wilayah
+After=network.target
+
+[Service]
+User=root
+Group=root
+
+# Membuat direktori socket otomatis setiap service start
+RuntimeDirectory=uwsgi
+RuntimeDirectoryMode=0755
+WorkingDirectory=/home/apps/kode-wilayah/src/api
+Environment="PATH=/home/apps/python3.venv/bin"
+ExecStart=/home/apps/python3.venv/bin/uwsgi --ini app.ini
+
+[Install]
+WantedBy=multi-user.target
