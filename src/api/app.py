@@ -7,7 +7,8 @@ app = Flask(__name__)
 app.config.from_object(Config)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-app.register_blueprint(wilayah_bp, url_prefix='/api/wilayah')
+app.register_blueprint(wilayah_bp, url_prefix='/kw')
+#app.register_blueprint(wilayah_bp, url_prefix='/api/wilayah')
 
 @app.route('/api/health')
 def health():
