@@ -3,6 +3,41 @@ from models import get_db, parse_kode
 
 wilayah_bp = Blueprint('wilayah', __name__)
 
+@wilayah_bp.route('/', methods=['GET'])
+def do_list():
+    kode = request.args.get('kd', default="", type=str)
+    token = request.args.get('tk', default=None, type=str)
+    #### CHECK TOKEN DULU DI SINI ####
+    match len(str(kode.strip())):
+        case 0:
+            level = 'list seluruh provinsi'
+            query = "SELECT REPLACE(kode, '.00.00.0000', '') AS kode, nama FROM wilayah WHERE kode LIKE '%.00.00.0000' AND kode != '00.00.00.0000' ORDER BY kode"
+        case 2:
+            level = 'list kabupaten/kota'
+            query = "SELECT REPLACE(kode, '.00.0000', '') AS kode, nama FROM wilayah WHERE kode LIKE '{kode}.%.00.0000' AND kode != '{kode}.00.00.0000' ORDER BY kode".format(kode=kode.strip())
+        case 5:
+            level = 'list kecamatan'
+            query = "SELECT REPLACE(kode, '.0000', '') AS kode, nama FROM wilayah WHERE kode LIKE '{kode}.%.0000' AND kode != '{kode}.00.0000' ORDER BY kode".format(kode=kode.strip())
+        case 8:
+            level = 'list desa/kelurahan'
+            query = "SELECT kode, nama FROM wilayah WHERE kode LIKE '{kode}.%' AND kode != '{kode}.0000' ORDER BY kode".format(kode=kode.strip())
+        case 13:
+            level = 'spesifik nama wilayah atau cek nomor kepmendagri'
+            query = "SELECT kode, nama FROM wilayah WHERE kode LIKE '{kode}' ORDER BY kode".format(kode=kode.strip())
+        case _:
+            return jsonify({'status': 'error', 'message': 'kode tidak valid'}), 400
+    db = get_db()
+    try:
+        with db.cursor() as cur:
+            cur.execute(query)
+            rows = cur.fetchall()
+        if len(rows) == 0:
+            return jsonify({'status': 'not_found', 'total': 0, 'message': 'Data tidak ditemukan'}), 404
+        return jsonify({'status': 'OK', 'total': len(rows), 'data': rows})
+    except Exception as e:
+        return jsonify({'status': 'error', 'message': str(e)}), 500
+    finally:
+        db.close()
 
 @wilayah_bp.route('/provinsi', methods=['GET'])
 def get_provinsi():
