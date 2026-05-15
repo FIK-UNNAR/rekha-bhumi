@@ -11,22 +11,23 @@ def do_list():
     match len(str(kode.strip())):
         case 0:
             level = 'list seluruh provinsi'
-            query = "SELECT REPLACE(kode, '.00.00.0000', '') AS kode, nama FROM wilayah WHERE kode LIKE '%.00.00.0000' AND kode != '00.00.00.0000' ORDER BY kode"
+            query = f"SELECT kode, nama FROM wilayah WHERE kode REGEXP '^[0-9]{{2}}$' ORDER BY kode"
         case 2:
             level = 'list kabupaten/kota'
-            query = "SELECT REPLACE(kode, '.00.0000', '') AS kode, nama FROM wilayah WHERE kode LIKE '{kode}.%.00.0000' AND kode != '{kode}.00.00.0000' ORDER BY kode".format(kode=kode.strip())
+            query = f"SELECT kode, nama FROM wilayah WHERE kode REGEXP '^{kode.strip()}.[0-9]{{2}}$' ORDER BY kode"
         case 5:
             level = 'list kecamatan'
-            query = "SELECT REPLACE(kode, '.0000', '') AS kode, nama FROM wilayah WHERE kode LIKE '{kode}.%.0000' AND kode != '{kode}.00.0000' ORDER BY kode".format(kode=kode.strip())
+            query = f"SELECT kode, nama FROM wilayah WHERE kode REGEXP '^{kode.strip()}.[0-9]{{2}}$' ORDER BY kode"
         case 8:
             level = 'list desa/kelurahan'
-            query = "SELECT kode, nama FROM wilayah WHERE kode LIKE '{kode}.%' AND kode != '{kode}.0000' ORDER BY kode".format(kode=kode.strip())
+            query = f"SELECT kode, nama FROM wilayah WHERE kode REGEXP '^{kode.strip()}.[0-9]{{4}}$' ORDER BY kode"
         case 13:
             level = 'spesifik nama wilayah atau cek nomor kepmendagri'
-            query = "SELECT kode, nama FROM wilayah WHERE kode LIKE '{kode}' ORDER BY kode".format(kode=kode.strip())
+            query = f"SELECT kode, nama FROM wilayah WHERE kode LIKE '{kode.strip()}' ORDER BY kode"
         case _:
             return jsonify({'status': 'error', 'message': 'kode tidak valid'}), 400
     db = get_db()
+    print(query)
     try:
         with db.cursor() as cur:
             cur.execute(query)
