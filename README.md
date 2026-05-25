@@ -1,6 +1,8 @@
-# kode-wilayah
+# Rekha Bhumi Nusantara
 
-Aplikasi API Python untuk menyediakan layanan kode wilayah Republik Indonesia.
+Rheka Bhumi Nusantara (bahasa Sansekerta, Rekha yang berarti garis/coretan, Bhumi yang berarti tanah/wilayah, dan Nusantara atau Nusa Antara yang berarti Indonesia) adalah Application Programming Interface (API) yang akan memberikan kode wilayah resmi Republik Indonesia berdasarkan Keputusan Menteri Dalam Negeri (KEPMENDAGRI) yang berlaku saat ini. Sistematika kode wilayah ini dibuat berdasarkan hirarki wilayah dari provinsi, kota/kabupaten, kecamatan, hingga desa/kelurahan, sehingga dapat langsung diakses dan digunakan dalam aplikasi dengan pilihan berbentuk SELECT.
+<div align="center"><img src="rekha-bhumi-logo.png" alt="Logo Rekha Bhumi" width="200" />
+</div>
 
 ## Deskripsi
 
@@ -13,7 +15,7 @@ Berikut adalah fungsi utamanya dalam pengembangan aplikasi:
 1. **Standarisasi dan Validasi Data (Data Integrity).**
 Tanpa kode wilayah, pengguna mungkin menulis alamat dengan cara berbeda-beda (misal: "Jaksel", "Jakarta Selatan", atau "DKI Jakarta"). Dengan kode wilayah (seperti 31.74), aplikasi akan memastikan input lokasi seragam sesuai standar Kemendagri/BPS dan mempermudah proses filter dan pencarian (pencarian berbasis angka jauh lebih cepat dan akurat daripada pencarian berbasis teks/string).
 2. **Fitur "Cascading Dropdown" (Alamat Bertingkat).**
-Pada formulir pendaftaran, kode wilayah digunakan untuk logika relasional. Sebagai contoh, saat pengguna memilih Provinsi (misal: 32 - Jawa Barat), aplikasi secara otomatis hanya akan memunculkan daftar Kabupaten/Kota yang kode awalnya 32.XX. Hal ini mencegah kesalahan input, seperti pengguna memilih Provinsi Jawa Barat tapi memilih Kota Surabaya.
+Pada formulir pendaftaran, kode wilayah digunakan untuk logika relasional. Sebagai contoh, saat pengguna memilih Provinsi (misal: 32 - Jawa Barat), aplikasi dapat secara otomatis hanya akan memunculkan daftar Kabupaten/Kota yang kode awalnya 32.XX. Hal ini mencegah kesalahan input, seperti pengguna memilih Provinsi Jawa Barat tapi memilih Kota Surabaya.
 3. **Pemetaan Layanan dan Distribusi (Geofencing Logis).**
 Pada aplikasi yang memiliki fitur layanan fisik (seperti e-commerce atau pesan antar), maka dengan sangat mudah bisa mengatur ongkir atau ketersediaan stok berdasarkan kode wilayah tertentu. Selain itu dapat sebagai analisa pengguna dengan memetakan di wilayah mana (kode wilayah mana) akun paling aktif tanpa harus memproses koordinat GPS yang rumit.
 4. **Keamanan dan Verifikasi Akun.**
