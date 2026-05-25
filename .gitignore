@@ -219,3 +219,5 @@ __marimo__/
 
 /.vscode
 *.venv
+**/*.ini
+**/*.service
