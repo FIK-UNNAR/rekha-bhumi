@@ -1,10 +1,20 @@
 from flask import Blueprint, jsonify, request
 from models import get_db, parse_kode
+from config import Config
 
 wilayah_bp = Blueprint('wilayah', __name__)
 
 @wilayah_bp.route('/', methods=['GET'])
 def do_list():
+    if Config.STAGE_RUNNING == 'development':
+        print('============ DEBUG ============')
+        print(f"Request method: {request.method}")
+        print(f"Request url: {request.url}")
+        print(f"Request args: {request.args}")
+        print(f"number of args: {len(request.args)}")
+        print(f"Request headers: {request.headers}")
+        print('============ END of DEBUG ============')
+
     kode = request.args.get('kd', default="", type=str)
     token = request.args.get('tk', default=None, type=str)
     #### CHECK TOKEN DULU DI SINI ####
@@ -27,7 +37,10 @@ def do_list():
         case _:
             return jsonify({'status': 'error', 'message': 'kode tidak valid'}), 400
     db = get_db()
-    print(query)
+    if Config.STAGE_RUNNING == 'development':
+        print('============ DEBUG ============')
+        print(f"The query is: {query}")
+        print('============ END of DEBUG ============')
     try:
         with db.cursor() as cur:
             cur.execute(query)
