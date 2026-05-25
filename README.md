@@ -1,14 +1,14 @@
 # Rekha Bhumi Nusantara
 
-Rheka Bhumi Nusantara (bahasa Sansekerta, Rekha yang berarti garis/coretan, Bhumi yang berarti tanah/wilayah, dan Nusantara atau Nusa Antara yang berarti Indonesia) adalah Application Programming Interface (API) yang akan memberikan kode wilayah resmi Republik Indonesia berdasarkan Keputusan Menteri Dalam Negeri (KEPMENDAGRI) yang berlaku saat ini. Sistematika kode wilayah ini dibuat berdasarkan hirarki wilayah dari provinsi, kota/kabupaten, kecamatan, hingga desa/kelurahan, sehingga dapat langsung diakses dan digunakan dalam aplikasi dengan pilihan berbentuk SELECT.
+**Rheka Bhumi Nusantara** (bahasa Sansekerta, **Rekha** yang berarti garis/coretan, **Bhumi** yang berarti tanah/wilayah, dan **Nusantara** atau Nusa Antara yang berarti Indonesia) adalah _Application Programming Interface_ (API) yang akan memberikan kode wilayah resmi Republik Indonesia berdasarkan Keputusan Menteri Dalam Negeri (KEPMENDAGRI) yang berlaku saat ini. Sistematika kode wilayah ini dibuat berdasarkan hirarki wilayah dari provinsi, kota/kabupaten, kecamatan, hingga desa/kelurahan, sehingga dapat langsung diakses dan digunakan dalam aplikasi dengan pilihan berbentuk SELECT.
 <div align="center"><img src="rekha-bhumi-logo.png" alt="Logo Rekha Bhumi" width="200" />
 </div>
 
 ## Deskripsi
 
-Kode Wilayah adalah identitas resmi berupa serangkaian angka (numerik) yang merepresentasikan setiap tingkatan wilayah administrasi pemerintahan di Indonesia. Kode Wilayah ini secar resmi dikelola oleh **Kementerian Dalam Negeri** (Kemendagri), kode ini berfungsi sebagai standar nasional untuk pendataan penduduk, perencanaan pembangunan, dan pelayanan publik agar seragam di seluruh instansi.
+Kode Wilayah adalah identitas resmi berupa serangkaian angka (numerik) yang merepresentasikan setiap tingkatan wilayah administrasi pemerintahan di Indonesia. Kode Wilayah ini secara resmi dikelola oleh **Kementerian Dalam Negeri** (Kemendagri), dan berfungsi sebagai standar nasional untuk pendataan penduduk, perencanaan pembangunan, dan pelayanan publik agar seragam di seluruh instansi.
 
-Bagi pengembang aplikasi, kode wilayah bukan sekadar angka formalitas, melainkan standar data *(Single Source of Truth)* yang sangat krusial untuk mengelola database lokasi pengguna.
+Bagi pengembang aplikasi, kode wilayah bukan sekadar angka formalitas, melainkan standar data **(Single Source of Truth)** yang sangat krusial untuk mengelola database lokasi pengguna.
 
 Berikut adalah fungsi utamanya dalam pengembangan aplikasi:
 
@@ -21,7 +21,7 @@ Pada aplikasi yang memiliki fitur layanan fisik (seperti e-commerce atau pesan a
 4. **Keamanan dan Verifikasi Akun.**
 Beberapa aplikasi finansial atau legal menggunakan kode wilayah untuk *cross-check* NIK. Misalkan memvalidasi apakah 6 digit pertama NIK yang diinput pengguna sesuai dengan data lokasi (Provinsi/Kota/Kecamatan) yang mereka klaim di profil. Selain itu, dapat juga sebagai pendeteksi anomali. Yaitu jika sebuah akun terdaftar dengan kode wilayah Papua tetapi melakukan transaksi yang tidak biasa di wilayah lain, sistem akan dengan mudah bisa memberikan peringatan keamanan.
 
-Aplikasi ini dibuat agar masyarakat, pengembang, dan pihak lain dapat dengan mudah mengakses informasi kode wilayah administratif Indonesia. Data yang digunakan disusun menurut format kode wilayah resmi dan terus dirawat ketika ada pembaruan dari keputusan Mendagri.
+**Rekha Bhumi** ini dibuat agar masyarakat, pengembang, dan pihak lain dapat dengan mudah mengakses informasi kode wilayah administratif Indonesia. Data yang digunakan disusun menurut format kode wilayah resmi dan akan terus dirawat ketika ada pembaruan dari keputusan Mendagri.
 
 ## Struktur Kode Wilayah Kemendagri
 
@@ -48,6 +48,7 @@ API juga akan menyediakan pencarian berupa regex baik dari kode wilayah maupun d
 ## Struktur Proyek
 
 - `src/api/` : tempat kode sumber API berada.
+- `src/tokenize/` : tempat kode sumber pendaftaran API untuk mendapatkan *API key* berupa token yang harus disertakan dalam 
 - `README.md` : dokumentasi proyek.
 
 ## Pemeliharaan
