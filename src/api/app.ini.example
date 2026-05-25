@@ -1,0 +1,23 @@
+[uwsgi]
+chdir = /home/apps/kode-wilayah/src/api # sesuaikan dengan kondisi saat penggunaan
+module = app:app
+master = true
+processes = 4
+
+socket = /run/uwsgi/kode_wilayah.sock
+chown-socket = www-data:www-data
+chmod-socket = 660
+vacuum = true
+die-on-term = true
+
+# --- Environment Variables ---
+env = DB_HOST=127.0.0.1             # ganti IP lokasi MySQL/MariaDB
+env = DB_PORT=3306                  # ganti port MySQL/MariaDB
+env = DB_USER=kode_wilayah          # ganti nama database yang digunakan
+env = DB_NAME=kode_wilayah          # ganti user MySQL/MariaDB
+env = DB_PASSWORD=K6FNYQ42%%ry1Ym   # ganti password MySQL/MariaDB
+env = SECRET_KEY=secret!!!          # tidak digunakan, ganti jika nanti perlu
+#env = STAGE_RUNNING=production     # Hapus tanda # untuk set ke production, defaultnya development
+
+# Lokasi log untuk debugging jika ada error
+logto = /var/log/uwsgi/kode_wilayah.log # sesuaikan dengan kondisi saat penggunaan
