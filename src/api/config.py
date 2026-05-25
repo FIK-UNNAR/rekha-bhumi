@@ -7,3 +7,4 @@ class Config:
     DB_PASSWORD = os.getenv('DB_PASSWORD', '')
     DB_NAME     = os.getenv('DB_NAME', 'wilayah_indonesia')
     SECRET_KEY  = os.getenv('SECRET_KEY', 'ganti-dengan-secret-key')
+    STAGE_RUNNING = os.getenv('STAGE_RUNNING', 'development')  # default ke development jika tidak diset
