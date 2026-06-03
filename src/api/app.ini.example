@@ -1,5 +1,5 @@
 [uwsgi]
-chdir = /home/apps/kode-wilayah/src/api # sesuaikan dengan kondisi saat penggunaan
+chdir = /home/apps/Rekha-Bhumi/src/api # sesuaikan dengan kondisi saat penggunaan
 module = app:app
 master = true
 processes = 4
