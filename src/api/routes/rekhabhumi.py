@@ -17,3 +17,19 @@ def log_request_info():
 @rekhabhumi_bp.route('/ver', methods=['GET'], strict_slashes=False)
 def versi():
     return jsonify({'status': 'OK', 'version': '1.0.0', 'app': Config.APP_NAME, 'data': 'Kemendagri 2024'})
+@rekhabhumi_bp.route('/list', methods=['GET'], strict_slashes=False)
+def error_list():
+    return jsonify({'status': 'ERROR', 'message': f'Perhatikan format end-point. Lihat contoh di {Config.APP_URL}'}), 400
+
+@rekhabhumi_bp.route('/list/<req_id:request_id>', methods=['GET'], strict_slashes=False)
+def get_list(request_id):
+    return jsonify({
+        "status": "success",
+        "message": f"Berhasil diakses dari Blueprint! ID: {request_id}"
+    })
+
+
+#@rekhabhumi_bp.route('/list/<format_kodewilayah:kodeWilayah>', methods=['GET'], strict_slashes=False)
+#def list_data(kodeWilayah):
+#    regex = r'\d+(?:\.\d+){0,2}(?:\.\d{4})?'
+#    return jsonify({'status': 'OK', 'message': f'Anda meminta data list {kodeWilayah}'})
