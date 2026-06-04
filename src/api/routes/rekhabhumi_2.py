@@ -16,8 +16,8 @@ def log_request_info():
 def error_wilayah():
     return jsonify({
         "status": "ERROR",
-        "invalid_input": request_id,
-        "message": "Format ID salah. Gunakan format xx, xx.xx, xx.xx.xx, atau xx.xx.xx.xxxx"
+        "invalid_input": None,
+        "message": f"Format request_id tidak valid. Perhatikan format end-point. Lihat contoh di {Config.APP_URL}"
     }), 400
 
 @rekhabhumi_2_bp.route('/<req_id:request_id>', methods=['GET'], strict_slashes=False)
@@ -30,7 +30,7 @@ def get_wilayah(request_id):
             rows = cur.fetchall()
         if len(rows) == 0:
             return jsonify({'status': 'NOT_FOUND', 'total': 0, 'message': 'Data tidak ditemukan'}), 404
-        return jsonify({'status': 'SUCCESS', 'total': len(rows), 'data': rows})
+        return jsonify({'status': 'SUCCESS', 'total': len(rows), 'data': rows}), 200
     except Exception as e:
         return jsonify({'status': 'ERROR', 'message': str(e)}), 500
     finally:
@@ -41,6 +41,6 @@ def get_wilayah_sink_home(request_id):
     return jsonify({
         "status": "ERROR",
         "invalid_input": request_id,
-        "message": "Format ID salah. Gunakan format xx, xx.xx, xx.xx.xx, atau xx.xx.xx.xxxx"
+        "message": f"Format request_id tidak valid. Perhatikan format end-point. Lihat contoh di {Config.APP_URL}"
     }), 400
 
