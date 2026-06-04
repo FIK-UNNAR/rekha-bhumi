@@ -50,7 +50,7 @@ CREATE INDEX wilayah_name_idx ON wilayah (nama);
 -- Provinsi ACEH
 INSERT INTO wilayah (kode, nama)
 VALUES
-('00.00.00.0000', 'Kepmendagri No 300.2.2-2138/2025 data rev-2. Thanks to Cahya DSN (https://github.com/cahyadsn)')
+('00.00.00.0000', 'Kepmendagri No 300.2.2-2138/2025 data rev-2. Thanks to Cahya DSN (https://github.com/cahyadsn)'),
 ('11','Aceh'),
 ('11.01','Kabupaten Aceh Selatan'),
 ('11.01.01','Bakongan'),
