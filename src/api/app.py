@@ -40,6 +40,13 @@ def root():
         nama_aplikasi=Config.APP_NAME,
         daftar_endpoint=data_endpoint,
     )
+@app.route('/rekhabhumi/privasi', methods=['GET'], strict_slashes=False)
+def privasi():
+    return render_template(
+        'privacy.html', 
+        title="Dokumentasi API", 
+        nama_aplikasi=Config.APP_NAME,
+    )
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
