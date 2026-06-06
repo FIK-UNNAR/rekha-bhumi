@@ -44,7 +44,21 @@ def root():
 def privasi():
     return render_template(
         'privacy.html', 
-        title="Dokumentasi API", 
+        title="Kebijakan Privasi API", 
+        nama_aplikasi=Config.APP_NAME,
+    )
+@app.route('/rekhabhumi/layanan', methods=['GET'], strict_slashes=False)
+def layanan():
+    return render_template(
+        'layanan.html', 
+        title="Ketentuan Layanan API", 
+        nama_aplikasi=Config.APP_NAME,
+    )
+@app.route('/rekhabhumi/acknowledgements', methods=['GET'], strict_slashes=False)
+def acknowledgements():
+    return render_template(
+        'acknowledgements.html', 
+        title="Acknowledgements Project API", 
         nama_aplikasi=Config.APP_NAME,
     )
 

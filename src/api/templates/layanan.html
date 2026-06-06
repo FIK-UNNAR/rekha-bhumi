@@ -71,47 +71,56 @@
     </header>
 
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col justify-center">
-        <div class="text-center max-w-3xl mx-auto">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 mb-6 border border-blue-100 animate-pulse">
-                Versi API Digunakan: versi
-            </span>
-            <h1 class="text-4xl font-extrabold text-slate-900 sm:text-5xl tracking-tight leading-tight">
-                Rekha Bhumi Nusantara
-            </h1>
-            <p class="mt-4 text-lg text-slate-500">
-                adalah <em>Programming Interface</em> (API) yang akan memberikan kode wilayah resmi Republik Indonesia berdasarkan Keputusan Menteri Dalam Negeri (KEPMENDAGRI) yang berlaku saat ini. Sistematika kode wilayah ini dibuat berdasarkan hirarki wilayah dari provinsi, kota/kabupaten, kecamatan, hingga desa/kelurahan, sehingga dapat langsung diakses dan digunakan dalam aplikasi dengan pilihan berbentuk SELECT.
-            </p>
-            <div class="mt-8 flex justify-center space-x-4">
-                <a href="#" class="bg-slate-900 hover:bg-slate-800 text-white font-medium px-6 py-3 rounded-xl transition shadow-md flex items-center">
-                    <i class="fa-solid fa-book mr-2"></i> Baca Panduan API
-                </a>
-                <a href="#" class="bg-white hover:bg-slate-50 text-slate-700 font-medium px-6 py-3 rounded-xl transition border border-slate-200 shadow-sm flex items-center">
-                    <i class="fa-solid fa-code mr-2"></i> Salin Token API
-                </a>
+        <div class="max-w-4xl mx-auto my-8 bg-white shadow-md rounded-xl overflow-hidden border border-slate-200">
+            <div class="bg-gradient-to-r from-slate-900 to-slate-800 px-8 py-10 text-white text-center">
+                <h4 class="text-3xl font-medium text-slate-900 sm:text-4xl tracking-tight leading-tight text-white ">
+                    Ketentuan Layanan API
+                </h4>
+                <h1 class="text-4xl font-bold text-slate-900 sm:text-5xl tracking-tight leading-tight text-white">
+                    Rekha Bhumi Nusantara
+                </h1>
             </div>
-        </div>
-        <div class="mt-16 max-w-2xl w-full mx-auto bg-slate-900 rounded-2xl shadow-xl overflow-hidden border border-slate-800">
-            <div class="bg-slate-800 px-4 py-3 flex items-center justify-between border-b border-slate-700">
-                <div class="flex space-x-2">
-                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <span class="text-xs font-mono text-slate-400">GET /rekhabhumi/wilayah/35.78.22.1004</span>
-            </div>
-            <div class="p-6 font-mono text-sm text-slate-300 overflow-x-auto leading-relaxed">
-                <p class="text-emerald-400">// Contoh Respon JSON Berhasil</p>
-                <pre class="mt-2 text-slate-200">
-{
-    <span class="text-blue-400">"status"</span>: <span class="text-amber-300">"success"</span>,
-    <span class="text-blue-400">"total"</span>: <span class="text-amber-300">1</span>,
-    <span class="text-blue-400">"request"</span>: <span class="text-amber-300">"/wilayah/35.78.22.1004"</span>,
-    <span class="text-blue-400">"data"</span>: {
-        <span class="text-blue-400">"kode"</span>: <span class="text-amber-300">"35.78.22.1004"</span>,
-        <span class="text-blue-400">"nama_wilayah"</span>: <span class="text-amber-300">Ketintang</span>
-    }
-}
-                </pre>
+        
+            <div class="p-6 md:p-10 space-y-6 text-justify text-slate-700 leading-relaxed">
+                <p>
+                    Selamat datang di layanan API <strong>Rekha Bhumi Nusantara</strong>. Dengan mengakses, mengintegrasikan, atau menggunakan API kami, Anda ("Pengguna" atau "Pengembang") dinyatakan telah membaca, memahami, dan menyetujui untuk terikat dengan seluruh Ketentuan Layanan ini. Jika Anda tidak menyetujui salah satu poin di bawah ini, Anda tidak diperkenankan menggunakan layanan kami.
+                </p>
+                <section class="space-y-2">
+                    <h2 class="text-lg font-bold text-slate-900 border-l-4 border-amber-500 pl-3">
+                        1. Penyediaan Data Apa Adanya ("<em>As-Is</em>")
+                    </h2>
+                    <p>
+                        Seluruh data, informasi, kode wilayah, dan layanan penunjang yang disediakan melalui API Rekha Bhumi Nusantara diberikan kepada Pengguna atas dasar <strong class="text-slate-900">"<em>As-Is</em>" (apa adanya)</strong> dan <strong class="text-slate-900">"<em>As-Available</em>" (tersedia sebagaimana adanya)</strong>. Kami tidak memberikan jaminan dalam bentuk apa pun, baik tersurat maupun tersirat, mengenai keakuratan mutlak, kelengkapan, keandalan, atau kesesuaian data untuk tujuan tertentu dari Pengguna.
+                    </p>
+                </section>
+                <section class="space-y-2">
+                    <h2 class="text-lg font-bold text-slate-900 border-l-4 border-amber-500 pl-3">
+                        2. Komitmen Perbaikan dan Pembatasan Tanggung Jawab
+                    </h2>
+                    <p>
+                        Kami berkomitmen penuh untuk menjaga kualitas data. Apabila ditemukan kesalahan teknis, kekeliruan data wilayah, atau gangguan sistem, pengelola Rekha Bhumi Nusantara <strong class="text-slate-900">akan berupaya melakukan perbaikan dengan segera</strong> setelah laporan diterima. 
+                    </p>
+                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-lg text-amber-950 text-sm my-3">
+                        <span class="font-bold block mb-1">PENGECUALIAN TANGGUNG JAWAB HUKUM:</span>
+                        Mengingat proses perbaikan memerlukan waktu dan penyesuaian teknis, pengelola Rekha Bhumi Nusantara secara hukum <strong class="font-semibold">TIDAK DAPAT DIGUGAT ATAU BERTANGGUNG JAWAB</strong> atas segala bentuk kerugian, baik materiil maupun immateriil, kehilangan keuntungan, gangguan bisnis, atau dampak operasional yang timbul pada aplikasi/website Pengguna akibat adanya kesalahan data atau tidak tersedianya layanan API untuk sementara waktu.
+                    </div>
+                </section>
+                <section class="space-y-2">
+                    <h2 class="text-lg font-bold text-slate-900 border-l-4 border-amber-500 pl-3">
+                        3. Kebijakan Penggunaan yang Adil (<em>Fair Use</em>)
+                    </h2>
+                    <p>
+                        Pengguna wajib menjaga keamanan kredensial (jika menggunakan API Key) dan dilarang keras melakukan tindakan yang dapat membebani atau merusak infrastruktur server kami, termasuk namun tidak terbatas pada serangan DDoS, modifikasi ilegal, atau tindakan <em>forceful scraping</em> tanpa izin tertulis.
+                    </p>
+                </section>
+                <section class="space-y-2">
+                    <h2 class="text-lg font-bold text-slate-900 border-l-4 border-amber-500 pl-3">
+                        4. Perubahan Layanan dan Ketentuan
+                    </h2>
+                    <p>
+                        Kami berhak untuk mengubah, memperbarui, atau menghentikan sebagian fitur API atau Ketentuan Layanan ini sewaktu-waktu demi meningkatkan performa atau menyesuaikan dengan regulasi hukum yang berlaku di Indonesia.
+                    </p>
+                </section>
             </div>
         </div>
     </main>
