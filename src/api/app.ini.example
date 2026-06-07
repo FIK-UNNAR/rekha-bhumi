@@ -1,5 +1,5 @@
 [uwsgi]
-chdir = /home/apps/Rekha-Bhumi/src/api # sesuaikan dengan kondisi saat penggunaan
+chdir = /home/apps/Rekha-Bhumi/src/api
 module = app:app
 master = true
 processes = 4
@@ -11,15 +11,16 @@ vacuum = true
 die-on-term = true
 
 # --- Environment Variables ---
-env = APP_NAME=Rekha Bhumi Nusantara            # Official Name
-env = APP_URL=http://api.testing.id/rekhabhumi  # ganti dengan URL yang akan digunakan
-env = FLASK_ENV=development                     # ganti production untuk layanan
-env = DB_HOST=127.0.0.1                         # ganti IP lokasi MySQL/MariaDB
-env = DB_PORT=3306                              # ganti port MySQL/MariaDB
-env = DB_USER=kode_wilayah                      # ganti nama database yang digunakan
-env = DB_NAME=kode_wilayah                      # ganti user MySQL/MariaDB
-env = DB_PASSWORD=K6FNYQ42%%ry1Ym               # ganti password MySQL/MariaDB
-env = SECRET_KEY=secret!!!                      # tidak digunakan, ganti jika nanti perlu
+env = APP_NAME=Rekha Bhumi Nusantara
+env = APP_URL=http://api.testing.id/rekhabhumi
+env = FLASK_ENV=development
+env = DB_HOST=127.0.0.1
+env = DB_PORT=3306
+env = DB_USER=kode_wilayah
+env = DB_NAME=kode_wilayah
+env = DB_PASSWORD=K6FNYQ42%%ry1Ym
+env = SECRET_KEY=secret!!!
 
 # Lokasi log untuk debugging jika ada error
-logto = /var/log/uwsgi/kode_wilayah.log # sesuaikan dengan kondisi saat penggunaan
+logto = /var/log/uwsgi/kode_wilayah.log
+logfile-chmod = 644
