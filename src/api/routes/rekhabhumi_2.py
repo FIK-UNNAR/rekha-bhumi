@@ -8,9 +8,15 @@ rekhabhumi_2_bp = Blueprint('rekhabhumi_2', __name__, url_prefix='/rekhabhumi/li
 def log_request_info():
     if Config.FLASK_ENV == 'development':
         print('====== DEBUG (Rekha Bhumi) ======', flush=True)
-        print(f"Request method: {request.method}", flush=True)
+        print(f"Request Method: {request.method}", flush=True)
         print(f"Request URL: {request.url}", flush=True)
+        print(f"Request Origin: {request.headers.get('Origin', 'NO_ORIGIN')}")
+        print(f"Request Authorization: {request.headers.get('Authorization', 'NO_AUTH')}")
+        print(f"Request Header: {request.headers}", flush=True)
         print('=================================', flush=True)
+    else:
+        # Nanti dipasang authorization di sini
+        pass
 
 @rekhabhumi_2_bp.route('/', methods=['GET'], strict_slashes=False)
 def error_wilayah():
