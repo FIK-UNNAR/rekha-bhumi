@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify, request
-from models.db import get_db, parse_kode
+from models.db import get_db
 from config import Config
 
-rekhabhumi_2_bp = Blueprint('rekhabhumi_2', __name__, url_prefix='/rekhabhumi/list')
+rekhabhumi_list_bp = Blueprint('rekhabhumi_list', __name__, url_prefix='/rekhabhumi/list')
 
-@rekhabhumi_2_bp.before_request
+@rekhabhumi_list_bp.before_request
 def log_request_info():
     if Config.FLASK_ENV == 'development':
         print('====== DEBUG (Rekha Bhumi) ======', flush=True)
@@ -18,8 +18,8 @@ def log_request_info():
         # Nanti dipasang authorization di sini
         pass
 
-@rekhabhumi_2_bp.route('/', methods=['GET'], strict_slashes=False)
-def error_wilayah():
+@rekhabhumi_list_bp.route('/', methods=['GET'], strict_slashes=False)
+def list_provinsi():
     query = "SELECT kode, nama FROM wilayah WHERE LENGTH(kode) = 2 AND kode BETWEEN '00' AND '99' ORDER BY kode"
     db = get_db()
     try:
@@ -51,8 +51,8 @@ def error_wilayah():
     finally:
         db.close()
 
-@rekhabhumi_2_bp.route('/<req_id:request_id>', methods=['GET'], strict_slashes=False)
-def get_wilayah(request_id):
+@rekhabhumi_list_bp.route('/<req_id:request_id>', methods=['GET'], strict_slashes=False)
+def list_lainnya(request_id):
     match len(str(request_id.strip())):
         case 2:
             # list semua kab/kota di propivinsi : xx.xx
@@ -100,8 +100,8 @@ def get_wilayah(request_id):
     finally:
         db.close()
  
-@rekhabhumi_2_bp.route('/<string:request_id>', methods=['GET'], strict_slashes=False)
-def get_wilayah_sink_home(request_id):
+@rekhabhumi_list_bp.route('/<string:request_id>', methods=['GET'], strict_slashes=False)
+def get_list_sink_home(request_id):
     return jsonify({
         'status': 'REQUEST_INVALID',
         'code': '400',
