@@ -38,6 +38,7 @@ def root():
         'index.html', 
         title="Dokumentasi API", 
         nama_aplikasi=Config.APP_NAME,
+        version=Config.APP_VERSION,
         daftar_endpoint=data_endpoint,
     )
 @app.route('/rekhabhumi/privasi', methods=['GET'], strict_slashes=False)
