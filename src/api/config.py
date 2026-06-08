@@ -2,6 +2,7 @@ import os
 
 class Config:
     APP_NAME    = os.getenv('APP_NAME', 'Rekha Bhumi Nusantara')
+    APP_VERSION = open('../../release_version', 'r').read()
     FLASK_ENV   = os.getenv('FLASK_ENV', 'development')
     APP_URL     = os.getenv('APP_URL', 'http://api.testing.id/rekhabhumi')
     DB_HOST     = os.getenv('DB_HOST', '127.0.0.1')
@@ -10,4 +11,4 @@ class Config:
     DB_PASSWORD = os.getenv('DB_PASSWORD', 'p@ssw0rd')
     DB_NAME     = os.getenv('DB_NAME', 'rekhabhumi')
     SECRET_KEY  = os.getenv('SECRET_KEY', 'kunci-rahasia-anda-disini')
-    STAGE_RUNNING = os.getenv('STAGE_RUNNING', 'development')  # default ke development jika tidak diset
+#    STAGE_RUNNING = os.getenv('STAGE_RUNNING', 'development')

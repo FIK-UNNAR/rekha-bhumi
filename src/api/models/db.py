@@ -4,15 +4,15 @@ from config import Config
 
 
 def get_db():
-    if Config.STAGE_RUNNING == 'development':
-        print("============ DEBUG ============")
+    if Config.FLASK_ENV == 'development':
+        print("============ DEBUG DB SETTINGS ============")
         print("Connecting to DB with config:")
         print(f"Host: {Config.DB_HOST}")
         print(f"Port: {Config.DB_PORT}")
         print(f"User: {Config.DB_USER}")
         print(f"Password: {'*' * len(Config.DB_PASSWORD)}")  # Don't print the actual password
         print(f"Database: {Config.DB_NAME}")
-        print("============ END of DEBUG ============")
+        print("===========++= END of DEBUG ===++=========")
     
     return pymysql.connect(
         host=Config.DB_HOST,
