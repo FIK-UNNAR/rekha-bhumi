@@ -5,8 +5,8 @@ from config import Config
 import subprocess
 from pathlib import Path
 import shutil
-from routes.rekhabhumi import rekhabhumi_bp
-from routes.rekhabhumi_2 import rekhabhumi_2_bp
+from routes.rekhabhumi_wilayah import rekhabhumi_wilayah_bp
+from routes.rekhabhumi_list import rekhabhumi_list_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -22,8 +22,8 @@ class RequestIdConverter(BaseConverter):
     regex = r'^(?:\d{2}|\d{2}\.\d{2}|\d{2}\.\d{2}\.\d{2}|\d{2}\.\d{2}\.\d{2}\.\d{4})$'
 
 app.url_map.converters['req_id'] = RequestIdConverter
-app.register_blueprint(rekhabhumi_bp, url_prefix='/rekhabhumi/')
-app.register_blueprint(rekhabhumi_2_bp, url_prefix='/rekhabhumi/list')
+app.register_blueprint(rekhabhumi_wilayah_bp, url_prefix='/rekhabhumi/wilayah')
+app.register_blueprint(rekhabhumi_list_bp, url_prefix='/rekhabhumi/list')
 
 #root endpoint untuk informasi dan dokumentasi API -statif file di templates/index.html
 @app.route('/rekhabhumi/', methods=['GET'], strict_slashes=False)
