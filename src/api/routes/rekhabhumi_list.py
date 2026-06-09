@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from models.db import get_db
+from models.db_wilayah import get_db
 from config import Config
 
 rekhabhumi_list_bp = Blueprint('rekhabhumi_list', __name__, url_prefix='/rekhabhumi/list')
