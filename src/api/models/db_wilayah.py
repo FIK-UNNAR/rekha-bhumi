@@ -12,7 +12,7 @@ def get_db():
         print(f"User: {Config.DB_USER}")
         print(f"Password: {'*' * len(Config.DB_PASSWORD)}")  # Don't print the actual password
         print(f"Database: {Config.DB_NAME}")
-        print("===========++= END of DEBUG ===++=========")
+        print("============ END of DEBUG ============")
     
     return pymysql.connect(
         host=Config.DB_HOST,
@@ -24,3 +24,18 @@ def get_db():
         cursorclass=pymysql.cursors.DictCursor,
         autocommit=False
     )
+
+def get_versi():
+    try:
+        db = get_db()
+        cur = db.cursor()
+        cur.execute("SELECT nama FROM wilayah WHERE kode='00.00.00.0000'")
+        row = cur.fetchone()
+        db.close()
+    except Exception as e:
+        return None
+
+    if row == None :
+        return None
+    else:
+        return row['nama']
