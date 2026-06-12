@@ -1,0 +1,71 @@
+{% extends '/layouts/main.html' %}
+
+{% block isi_konten %}
+<!-- Bagian Kiri: Dokumentasi API (Lebar 2 Kolom di Layar Besar) -->
+<section class="lg:col-span-2 space-y-6">
+    <div class="max-w-4xl mx-auto my-8 bg-white shadow-md rounded-xl overflow-hidden border border-slate-200">
+        <div class="bg-gradient-to-r from-slate-900 to-slate-800 px-8 py-10 text-white text-center">
+            <h4 class="text-3xl font-medium text-slate-900 sm:text-4xl tracking-tight leading-tight text-white ">
+                <em>Release Note</em> API versi {{version}}
+            </h4>
+            <h1 class="text-4xl font-bold text-slate-900 sm:text-5xl tracking-tight leading-tight text-white">
+                {{nama_aplikasi}}
+            </h1>
+        </div>
+        <div class="p-6 md:p-10 space-y-4">
+            <p class="text-slate-500 mt-1">
+                Dalam rangka memenuhi misi <em><strong>Menjadi Agen Perubahan dalam Penelitian dan Pengembangan Teknologi Informasi</strong></em> di Indonesia, maka Fakultas Ilmu Komputer - Universitas Narotama berkomitmen untuk ikut serta dalam memberikan layanan digital kepada publik demi terciptanya ekosistem digital Indonesia yang mandiri.
+            </p>
+            <p class="text-slate-500 mt-1">
+                Oleh sebab itu, API <strong>{{nama_aplikasi}}</strong> akan terus dipelihara dan dikembangkan. Pemeliharaan dan pengembangan aplikasi ini dapat dilihat dari versi aplikasi dan versi data yang digunakan (dapat dilihat melalu <em>end-point</em> <code class="bg-slate-200 text-slate-800 px-1.5 py-0.5 rounded text-xs font-mono">{{url_aplikasi}}/ver</code>).
+            </p>
+            <p class="text-slate-500 mt-1">
+                Versi aplikasi akan mengikuti format <code class="bg-slate-200 text-slate-800 px-1.5 py-0.5 rounded text-xs font-mono">x.yy-zz</code>, dimana x adalah <em>major version</em>, yy adalah <em>minor version</em>, dan zz adalah <em>sequence number</em>. <em>Release Notes</em> ini hanya memuat perubahan-perubahan pada <em>major</em> dan <em>minor</em> version. Sementara perubahan <em>sequence number</em> tidak akan dimuat -mengingat perubahannya sangat <em>minor</em> (seperti salah tulis, penambahan informasi, atau perubahan penggunanan database).
+            </p>
+            <p class="text-slate-500 mt-1">
+                Berikut <em>Release Notes</em> aplikasi sesuai urutan yang terbaru:
+            </p>
+            <!-- Bagian Kanan: Release Notes Interaktif (Lebar 1 Kolom) -->
+<aside class="lg:col-span-1 space-y-4">
+
+
+    <!-- Versi Terbaru (Otomatis Terbuka dengan atribut 'open') -->
+    <details open class="group bg-blue-50/50 border border-blue-200 rounded-xl overflow-hidden transition-all duration-300">
+        <summary class="flex justify-between items-center p-4 font-bold text-blue-900 cursor-pointer list-none select-none bg-blue-50 hover:bg-blue-100/80 transition-colors">
+            <span>Versi 1.00-00 <span class="ml-2 text-xs bg-blue-600 text-white px-2 py-0.5 rounded-full font-medium">Terbaru</span></span>
+            <span class="transition-transform duration-300 group-open:rotate-180 text-blue-500">&#9662;</span>
+        </summary>
+        <div class="p-4 border-t border-blue-100 bg-white space-y-2 text-sm text-slate-600">
+            <p class="text-xs text-slate-400 font-medium">
+                Dirilis pada tanggal: 15 Juni 2026
+            </p>
+            <ul class="list-disc list-inside space-y-1 pl-1">
+                <li>Release pertama <strong>{{nama_aplikasi}}</strong>.
+                <li>Menggunakan data Kepmendagri No 300.2.2-2138/2025</li>
+                <li>Tiga buah <em>end-point</em>: /ver, /list/[kode_wilayah], dan /wilayah/&lt;kode_wilayah&gt;</li>
+                <li>Belum menggunakan otorisasi maupun pembatasan <em>origin</em></li>
+            </ul>
+        </div>
+    </details>
+
+    <!-- Versi Lama  (Tertutup) -->
+    <!--details class="group bg-white border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+        <summary class="flex justify-between items-center p-4 font-semibold text-slate-700 cursor-pointer list-none select-none hover:bg-gray-50 transition-colors">
+            <span>Versi 1.1.0</span>
+            <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">&#9662;</span>
+        </summary>
+        <div class="p-4 border-t border-gray-100 space-y-2 text-sm text-slate-600">
+            <p class="text-xs text-slate-400 font-medium">Dirilis pada: 10 Mei 2026</p>
+            <ul class="list-disc list-inside space-y-1 pl-1">
+                <li>Optimasi payload data JSON pada endpoint GET.</li>
+                <li>Pemberlakuan pembatasan akses (*Rate Limiting*).</li>
+            </ul>
+        </div>
+    </details-->
+</aside>
+        </div>
+    </div>
+
+
+</section>
+{% endblock %}

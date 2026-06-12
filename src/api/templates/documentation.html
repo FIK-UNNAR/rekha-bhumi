@@ -1,0 +1,149 @@
+{% extends '/layouts/main.html' %}
+
+{% block isi_konten %}
+<!-- Bagian Kiri: Dokumentasi API (Lebar 2 Kolom di Layar Besar) -->
+<section class="lg:col-span-2 space-y-6">
+    <div class="max-w-4xl mx-auto my-8 bg-white shadow-md rounded-xl overflow-hidden border border-slate-200">
+        <div class="bg-gradient-to-r from-slate-900 to-slate-800 px-8 py-10 text-white text-center">
+            <h4 class="text-3xl font-medium text-slate-900 sm:text-4xl tracking-tight leading-tight text-white ">
+                Dokumentasi API versi {{version}}
+            </h4>
+            <h1 class="text-4xl font-bold text-slate-900 sm:text-5xl tracking-tight leading-tight text-white">
+                {{nama_aplikasi}}
+            </h1>
+        </div>
+        <div class="p-6 md:p-10 space-y-4">
+            <p class="text-slate-500 mt-1">
+                Selamat datang di dokumentasi API <strong>Rekha Bhumi Nusantara</strong>. Pada halaman ini terdapat informasi untuk para pengguna (dan pengembang) dalam menggunakan, mengintegrasikan serta memanfaatkan layanan API data wilayah yang kami sediakan langsung ke dalam sistem atau aplikasi Anda.
+            </p>
+            <p class="text-slate-500 mt-1">
+                Harap dicatat bahwa halaman ini hanya berisi dokumentasi cara konsumsi dan penggunaan <em>endpoint</em> API <strong>{{url_aplikasi}}</strong>.<br>
+                Bagi Anda yang memerlukan panduan teknis mengenai arsitektur kode sumber, kontribusi repositori, setup lingkungan lokal, atau konfigurasi backend Flask, seluruh informasi tersebut dapat diakses secara terpisah melalui file <code class="bg-slate-200 text-slate-800 px-1.5 py-0.5 rounded text-xs font-mono">README.md</code> yang tersedia di dalam repositori <a href="https://github.com/FIK-UNNAR/Rekha-Bhumi">GitHub</a> proyek ini.
+            </p>
+            <aside class="lg:col-span-1 space-y-4">
+                <details class="group bg-blue-50/50 border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+                    <summary class="flex justify-between items-center p-4 font-bold text-blue-900 cursor-pointer list-none select-none bg-blue-50 hover:bg-blue-100/80 transition-colors">
+                        Kode dan Data Wilayah Administrasi Pemerintahan
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">&#9662;</span>
+                    </summary>
+                    <div class="p-4 border-t border-gray-100 space-y-2 text-sm text-slate-600">
+                        <p class="text-slate-500 mt-1">
+                    Aplikasi Rekhabhumi menggunakan acuan resmi Kode dan Data Wilayah Administrasi Pemerintahan yang dikeluarkan oleh Kementerian Dalam Negeri Republik Indonesia (Kemendagri).
+                </p>
+                <p class="text-slate-500 mt-1">
+                    Format penulisan kode wilayah ini bersifat hierarkis dan dipisahkan oleh tanda titik (.) dengan struktur maksimal 4 blok angka -contoh formatnya: xx.xx.xx.xxxx. Blok angka ini merupakan kode administratif dari sebuah wilayah, dengan pembagiannya sebagai barikut:
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3 flex items-center">1. Blok Pertama (kode Provinsi)</h2>
+                    <p class="text-slate-500 mt-1">
+                        Blok pertama terdiri dari 2 digit angka yang menunjukkan identitas Provinsi.<br> Pada blok ini, awalan 1 dan 2 adalah provinsi yang ada di gugusan pulau Sumatra, awalan 3 untuk provinsi di gugusan pulau Jawa, awalan 5 untuk provinsi di gugusan pulau Bali dan Nusa Tenggara, awalan 6 untuk provinsi di gugusan pulau Kalimantan, awalan 7 untuk provinsi di gugusan pulau Sulawesi, awalan 8 untuk provinsi di gugusan pulau Maluku, dan awalan 9 untuk provinsi di gugusan pulau Papua.<br>
+                        Sebagai contoh: kode 11 adalah Provinsi Aceh, kode 21 adalah Provinsi Kepulauan Riau, kode 31 adalah Daerah Khusus Ibukota Jakarta, dan seterusnya.
+                    </p>
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3 flex items-center">2. Blok Kedua (kode Kota/Kabupaten)</h2>
+                    <p class="text-slate-500 mt-1">
+                        Blok kedua terdiri dari 2 digit angka yang menunjukkan identitas Kota atau Kabupaten, yang berada pada provinsi yang ditentukan pada blok pertama. Pada blok ini, jika diawali dengan angka antara 0 sampai dengan 6 (01 sampai dengan 69) secara administratif wilayah itu adalah kabupaten. Sementara bila diawali 7 sampai dengan 9 (70 sampai dengan 99) secara administratif wilayah tersebut adalah kota.<br>
+                        Sebagai contoh: 11.01 adalah kode untuk kab. Aceh Selatan provinsi Aceh, 21.01 adalah kode untuk kab. Bintan provinsi Kepulauan Riau, 31.01 adalah kode untuk kab. Administrasi Kepulauan Seribu provinsi DKI Jakarta, 35.78 adalah kode untuk kota Surabaya provinsi Jawa Timur, dan seterusnya.
+                    </p>
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3 flex items-center">3. Blok Ketiga (kode Kecamatan)</h2>
+                    <p class="text-slate-500 mt-1">
+                        Blok ketiga juga terdiri dari 2 digit angka yang menunjukkan identitas Kecamatan yang ada di Kota atau Kabupaten yang ditentukan blok kedua dan provinsi yang ditentukan pada blok pertama.<br>
+                        Sebagai contoh: 11.01.01 adalah kode untuk kecamatan Bakongan yang ada di kab. Aceh Selatan provinsi Aceh, 35.78.22 adalah kode untuk kecamatan Gayungan yang ada di kota Surabaya provinsi Jawa Timur, dan seterusnya.
+                    </p>
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3 flex items-center">4. Blok Keempat (kode Kelurahan/Desa)</h2>
+                    <p class="text-slate-500 mt-1">
+                        Blok keempat terdiri dari 4 digit angka yang menunjukkan identitas Kelurahan atau Desa, yang berada pada kecamatan -yang ditentukan oleh blok ketiga, pada kota atau kabupaten -yang ditentukan oleh blok kedua, dan pada aprovinsi -yang ditentukan pada blok pertama. Digit pertama dari kode ini menandakan status apakah wilayah tersebut secara administrasi adalah desa atau kelurahan. Jika berawalan 1, maka wilayah tersebut secara administratif adalah kelurahan dan jika berawalan 2, maka wilayah tersebut secara administratif adalah desa.<br>
+                        Sebagai contoh: 11.01.01.2001 adalah kode untuk desa Keude Bakongan kecamatan Bakongan kab. Aceh Selatan provinsi Aceh, 35.78.22.1004 adalah kelurahan Ketintang kecamatan Gayungan kota Surabaya provinsi Jawa Timur dan seterusnya.
+                    </p>
+                </p>
+                    </div>
+                </details>
+
+                <details class="group bg-blue-50/50 border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+                    <summary class="flex justify-between items-center p-4 font-bold text-blue-900 cursor-pointer list-none select-none bg-blue-50 hover:bg-blue-100/80 transition-colors">
+                        <em>Authentication & Origin</em>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">&#9662;</span>
+                    </summary>
+                    <div class="p-4 border-t border-gray-100 space-y-2 text-sm text-slate-600">
+                        <p class="text-slate-500 mt-1">
+                            Pada versi {{version}} ini, Rekha Bhumi Nusantara belum menyertakan batasan baik berupa Authentication maupun Origin pengaksesnya. Namun direncanakan untuk kedepannya, kami akan meminta setiap pengakses untuk mendaftarkan origin aplikasinya dan kami akan memberikan API-Key untuk dipasang pada setiap kali request yang dilakukan.
+                        </p>
+                        <p class="text-slate-500 mt-1">
+                            Kami akan memberitahukan di situs ini pada saat proses otentikasi ini akan dilakukan.
+                        </p>
+                    </div>
+                </details>
+
+                <details class="group bg-blue-50/50 border border-gray-200 rounded-xl overflow-hidden transition-all duration-300">
+                    <summary class="flex justify-between items-center p-4 font-bold text-blue-900 cursor-pointer list-none select-none bg-blue-50 hover:bg-blue-100/80 transition-colors">
+                        <em>End-Point API</em>
+                        <span class="transition-transform duration-300 group-open:rotate-180 text-gray-400">&#9662;</span>
+                    </summary>
+                    <div class="p-4 border-t border-gray-100 space-y-2 text-sm text-slate-600">
+                        <p class="text-slate-500 mt-1">
+                            Terdapat tiga buah <em>end-point</em> pada API versi {{version}} ini, dan semuanya menggunakan <em>method</em> GET. <em>Based URL</em> API ini berada di <code class="bg-slate-200 text-slate-800 px-1.5 py-0.5 rounded text-xs font-mono">{{url_aplikasi}}</code>. Semua <em>reply</em> yang dikembalikan oleh server berbentuk json.
+                        </p>
+                        <p class="text-slate-500 mt-1">
+                            <em>HTTP code reply</em> setiap akses <em>end-point</em> sesuai dengan <em>HTTP code</em> yang digunakan dalam standar <a href="https://datatracker.ietf.org/doc/html/rfc7231">RFC7231</a>. Pada versi {{version}} ini digunakan:
+                            <ul class="list-disc list-inside space-y-1 pl-1">
+                                <li>
+                                    200 OK - untuk akses ke <em>end-point</em> yang sukses dan terdapat data yang di-<em>query</em>.
+                                </li>
+                                <li>
+                                    400 BAD REQUEST - menandakan bahwa akses ke <em>end-point</em> tidak mengikuti format yang telah ditentukan. Silakan <em>request</em> disesuaikan dengan format yang ada.
+                                </li>
+                                <li>
+                                    404 NOT FOUND - <em>request</em> yang dilakukan berhasil dilaksanakan, namun tidak teradapat data yang diinginkan.
+                                </li>
+                                <li>
+                                    500 Internal Server Error - jika terdapat kesalahan dalam aplikasi dan/atau server. Kontak kami jika hal ini terjadi.
+                                </li>
+                            </ul>
+                        </p>
+                        <p class="text-slate-500 mt-1">
+                            Berikut penjelasan ketiga <em>end-point</em> API:
+                        </p>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                            <div class="flex flex-wrap items-center gap-3 mb-3">
+                                <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">GET</span>
+                                <code class="text-base font-mono font-semibold text-slate-800">{{url_aplikasi}}/ver</code>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Mengambil status versi aplikasi dan versi data yang digunakan dalam <strong>API Rekha Bhumi Nusantara</strong>. Jika diketahui ada data yang lebih baru, mohon untuk memberitahu ke administrator untuk dilakukan <em>update</em> data.
+                            </p>
+                            <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 tracking-wider">GET {{url_aplikasi}}/ver</h4>
+                            <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 tracking-wider">Response (200 OK)</h4>
+                            <pre class="bg-slate-950 text-emerald-400 p-4 rounded-lg font-mono text-sm overflow-x-auto shadow-inner">[{"code":"200","message":{"aplikasi":"1.0-00","database":"Kepmendagri No 300.2.2-2138/2025 data rev-2. Thanks to Cahya DSN (https://github.com/cahyadsn)"},"request":"/ver","status":"SUCCESS","total":2}]</pre>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                            <div class="flex flex-wrap items-center gap-3 mb-3">
+                                <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">GET</span>
+                                <code class="text-base font-mono font-semibold text-slate-800">{{url_aplikasi}}/list/[kode_wilayah]</code>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Mengambil seluruh wilayah yang berada di bawah kode wilayah yang disebutkan. Jika <code class="bg-slate-200 text-slate-800 px-1.5 py-0.5 rounded text-xs font-mono">kode_wilayah</code> tidak dicantumkan, maka akan dikembalikan kode dan nama wilayah provinsi se-Indonesia.<br>
+                                Data <code class="bg-slate-200 text-slate-800 px-1.5 py-0.5 rounded text-xs font-mono">kode_wilayah</code> yang dapat diisikan hanya sampai level Kecamatan (blok ketiga), karena di bawah kelurahan/desa sudah tidak terdapat lagi data resmi dari Kemendagri.
+                            </p>
+                            <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 tracking-wider">GET {{url_aplikasi}}/list/35.78.22</h4>
+                            <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 tracking-wider">Response (200 OK)</h4>
+                            <pre class="bg-slate-950 text-emerald-400 p-4 rounded-lg font-mono text-sm overflow-x-auto shadow-inner">[{"code":"200","message":[{"kode":"35.78.22.1001","nama":"Gayungan"},{"kode":"35.78.22.1002","nama":"Menanggal"},{"kode":"35.78.22.1003","nama":"Dukuh Menanggal"},{"kode":"35.78.22.1004","nama":"Ketintang"}],"request":"/list/35.78.22","status":"SUCCESS","total":4}]</pre>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+                            <div class="flex flex-wrap items-center gap-3 mb-3">
+                                <span class="bg-blue-600 text-white px-3 py-1 rounded-md text-xs font-bold uppercase tracking-wider">GET</span>
+                                <code class="text-base font-mono font-semibold text-slate-800">{{url_aplikasi}}/wilayah/&lt;kode_wilayah&gt;</code>
+                            </div>
+                            <p class="text-gray-600 text-sm mb-4">
+                                Mengambil data nama dari <code class="bg-slate-200 text-slate-800 px-1.5 py-0.5 rounded text-xs font-mono">kode_wilayah</code> yang diisikan. <em>Reply</em> dari API akan mengembalikan semua nama wilayah dari <code class="bg-slate-200 text-slate-800 px-1.5 py-0.5 rounded text-xs font-mono">kode_wilayah</code> yang diisikan sampai ke atas (provinsi).
+                            </p>
+                            <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 tracking-wider">GET {{url_aplikasi}}/wilayah/35.78.22.1004</h4>
+                            <h4 class="text-xs font-bold text-gray-400 uppercase mb-2 tracking-wider">Response (200 OK)</h4>
+                            <pre class="bg-slate-950 text-emerald-400 p-4 rounded-lg font-mono text-sm overflow-x-auto shadow-inner">[{"code":"200","message":{"Kabupaten_Kota":"Kota Surabaya","Kecamatan":"Gayungan","Kelurahan_Desa":"Ketintang","Provinsi":"Jawa Timur"},"request":"/wilayah/35.78.22.1004","status":"SUCCESS","total":4}]</pre>
+                        </div>
+                    </div>
+                </details>
+
+            </aside>
+        </div>
+    </div>
+</section>
+{% endblock %}

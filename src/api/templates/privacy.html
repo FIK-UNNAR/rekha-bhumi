@@ -1,0 +1,130 @@
+{% extends 'layouts/main.html' %}
+
+{% block isi_konten %}
+        <div class="max-w-4xl mx-auto my-8 bg-white shadow-md rounded-xl overflow-hidden border border-slate-200">
+            <div class="bg-gradient-to-r from-slate-900 to-slate-800 px-8 py-10 text-white text-center">
+                <h4 class="text-3xl font-medium text-slate-900 sm:text-4xl tracking-tight leading-tight text-white ">
+                    Kebijakan Privasi Layanan API
+                </h4>
+                <h1 class="text-4xl font-bold text-slate-900 sm:text-5xl tracking-tight leading-tight text-white">
+                    Rekha Bhumi Nusantara
+                </h1>
+            </div>
+            <div class="p-6 md:p-4 space-y-4">
+                <div class="bg-slate-50 border border-slate-200 border-l-4 border-l-unnar-accent p-4 rounded-r-lg text-sm text-slate-600">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        <div><span class="font-semibold text-slate-700">Nama Platform:</span> API untuk Negeri</div>
+                        <div><span class="font-semibold text-slate-700">Nama Layanan:</span> Rekha Bhumi Nusantara</div>
+                        <div><span class="font-semibold text-slate-700">Tanggal Berlaku:</span> 5 Juni 2026</div>
+                        <div><span class="font-semibold text-slate-700">Status Dokumen:</span> Resmi / Publik</div>
+                    </div>
+                </div>
+
+                <p class="text-justify leading-relaxed">
+                    Selamat datang di <strong class="text-unnar-dark font-semibold">Rekha Bhumi Nusantara</strong> (bagian dari "<strong>API untuk Negeri</strong>"), sebuah platform penyedia layanan <em>Application Programming Interface</em> (API) yang dikembangkan dan dikelola oleh <em>civitas academy</em> Fakultas Ilmu Komputer - Universitas Narotama. Kami sangat menghargai privasi para pengembang, instansi, maupun individu yang menggunakan layanan kami. Kebijakan Privasi ini dirancang untuk membantu Anda memahami bagaimana kami mengumpulkan, menggunakan, memproses, dan melindungi data informasi yang Anda berikan selama proses pendaftaran dan penggunaan API Key.
+                </p>
+
+                <!-- Bagian 1 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3 flex items-center">
+                        1. Informasi yang Kami Kumpulkan
+                    </h2>
+                    <p class="text-justify leading-relaxed">
+                        Untuk memastikan keamanan jaringan, validitas integrasi, dan pembatasan akses penyalahgunaan layanan, kami mengumpulkan data spesifik berikut dari Anda saat mengajukan permohonan akses API:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2 text-justify">
+                        <li><strong class="text-slate-700">Alamat Email:</strong> Kami meminta alamat email aktif pengguna yang berfungsi sebagai identitas akun pengembang, sarana komunikasi teknis, pembaruan layanan, serta pengiriman notifikasi status verifikasi.</li>
+                        <li><strong class="text-slate-700">Domain Origin (URL Website):</strong> Kami mewajibkan Anda untuk mendaftarkan alamat domain asal (<em>origin domain</em>) yang akan melakukan pemanggilan (<em>request</em>) ke server API kami.</li>
+                        <li><strong class="text-slate-700">Metadata Koneksi & Log Server:</strong> Server kami secara otomatis merekam data teknis standar seperti alamat IP pengirim request, timestamp, tipe browser/user-agent, dan HTTP method demi kebutuhan audit keamanan sistem.</li>
+                    </ul>
+                    <p class="text-justify leading-relaxed">
+                        Semua data yang dibutuhkan untuk proses verifikasi dan penerbitan API Key ini dikumpulkan secara sukarela oleh pengguna saat pendaftaran dan akan kami verifikasi dengan proses yang sesuai. Kami tidak mengumpulkan data pribadi lain di luar yang disebutkan di atas, kecuali jika diperlukan untuk kepatuhan hukum atau keamanan sistem.
+                    </p>
+                </section>
+
+                <!-- Bagian 2 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3">
+                        2. Mekanisme Verifikasi dan Penerbitan API Key
+                    </h2>
+                    <p class="text-justify leading-relaxed">
+                        Sesuai dengan komitmen kami dalam menyediakan layanan yang aman dan bertanggung jawab untuk negeri, setiap permohonan akses tunduk pada prosedur verifikasi berikut:
+                    </p>
+                    <div class="bg-blue-50 border border-blue-200 p-5 rounded-xl">
+                        <ol class="list-decimal pl-5 space-y-3 text-justify text-slate-700">
+                            <li><span class="font-medium text-unnar-dark">Pendaftaran Akun:</span> Pemohon mengisi alamat email valid yang akan digunakan sebagai identitas akun pengembang.</li>
+                            <li><span class="font-medium text-unnar-dark">Pengisian Data:</span> Pemohon mengisi <em>Domain Origin</em> spesifik yang akan dipasangi API.</li>
+                            <li><span class="font-medium text-unnar-dark">Proses Verifikasi Akun dan Domain:</span> Sistem akan melakukan pemeriksaan validitas, reputasi, kepemilikan, dan kesesuaian informasi yang didaftarkan.</li>
+                            <li><span class="font-medium text-unnar-dark">Penerbitan Kredensial:</span> Jika domain dinilai aman dan memenuhi standar kepatuhan layanan, sistem kami akan menerbitkan token unik berupa <strong class="text-unnar-accent font-semibold">API Key</strong>.</li>
+                            <li><span class="font-medium text-unnar-dark">Pembatasan CORS (<em>Cross-Origin Resource Sharing</em>):</span> API Key yang diterbitkan dikunci secara ketat dan hanya dapat digunakan secara sah oleh website dengan <em>Domain Origin</em> yang telah terverifikasi tersebut.</li>
+                        </ol>
+                    </div>
+                </section>
+
+                <!-- Bagian 3 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3">
+                        3. Penggunaan Informasi dan Data Anda
+                    </h2>
+                    <p class="text-justify leading-relaxed">
+                        Informasi yang kami kumpulkan dan verifikasi semata-mata digunakan untuk tujuan berikut:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2 text-justify">
+                        <li>Memvalidasi hak akses dan mencegah penyalahgunaan API (seperti serangan DDoS, scraping ilegal, atau spamming).</li>
+                        <li>Mengirimkan informasi krusial terkait maintenance server, perubahan struktur endpoint, atau pembaruan regulasi teknis.</li>
+                        <li>Menyusun statistik performa penggunaan API secara agregat dan anonim tanpa mengungkap aktivitas spesifik dari pengguna akhir (<em>end-user</em>) website Anda.</li>
+                    </ul>
+                </section>
+
+                <!-- Bagian 4 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3">
+                        4. Keamanan dan Perlindungan Data
+                    </h2>
+                    <p class="text-justify leading-relaxed">
+                        Kami menerapkan standar keamanan teknis dan organisasional yang ketat untuk melindungi email, domain, dan rahasia API Key Anda dari akses tidak sah, perubahan, atau pengungkapan yang melanggar hukum. Pemilik API Key juga berkewajiban secara mandiri untuk menjaga kerahasiaan token yang diberikan dan bertanggung jawab penuh atas segala aktivitas pemanggilan data yang berasal dari domain terdaftar mereka.
+                    </p>
+                </section>
+
+                <!-- Bagian 5 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3">
+                        5. Berbagi Data dengan Pihak Ketiga
+                    </h2>
+                    <p class="text-justify leading-relaxed">
+                        Platform <strong class="text-unnar-dark">api.unnar.id</strong> berkomitmen penuh untuk <strong class="text-slate-900 font-semibold">tidak menjual, menyewakan, menukarkan, atau memberikan</strong> alamat email dan informasi domain pengembang kepada pihak ketiga mana pun untuk tujuan komersial atau periklanan tanpa persetujuan tertulis dari Anda.
+                    </p>
+                </section>
+
+                <!-- Bagian 6 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3">
+                        6. Hak Pengembang (Penghapusan Akun & Pencabutan API Key)
+                    </h2>
+                    <p class="text-justify leading-relaxed">
+                        Anda berhak untuk memperbarui informasi domain atau meminta penghentian layanan kapan saja. Jika Anda memutuskan untuk menghapus data email dan domain Anda dari sistem kami, API Key Anda akan secara otomatis dicabut (<em>revoked</em>) dan website terdaftar tidak akan bisa lagi mengakses data dari server kami.
+                    </p>
+                </section>
+
+                <!-- Bagian 7 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3">
+                        7. Perubahan Kebijakan Privasi
+                    </h2>
+                    <p class="text-justify leading-relaxed">
+                        Kami berhak melakukan pembaruan pada Kebijakan Privasi ini sewaktu-waktu guna menyesuaikan dengan perkembangan teknologi dan regulasi hukum yang berlaku di Indonesia. Setiap perubahan signifikan akan kami informasikan melalui broadcast ke alamat email yang terdaftar di sistem kami atau melalui pengumuman resmi di situs api.unnar.id.
+                    </p>
+                </section>
+
+                <!-- Bagian 8 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg font-bold text-unnar-dark border-l-4 border-unnar-accent pl-3">
+                        8. Kontak dan Layanan Bantuan
+                    </h2>
+                    <p class="text-justify leading-relaxed">
+                        Apabila Anda memiliki pertanyaan, kendala teknis verifikasi, atau keluhan terkait penerapan Kebijakan Privasi ini, Anda dapat menghubungi tim pengelola sistem di Universitas Narotama melalui saluran resmi yang tersedia pada platform.
+                    </p>
+                </section>
+            </div>
+        </div>
+{% endblock %}

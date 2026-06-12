@@ -1,0 +1,26 @@
+[uwsgi]
+chdir = /home/apps/Rekha-Bhumi/src/api
+module = app:app
+master = true
+processes = 4
+
+socket = /run/uwsgi/kode_wilayah.sock
+chown-socket = www-data:www-data
+chmod-socket = 660
+vacuum = true
+die-on-term = true
+
+# --- Environment Variables ---
+env = APP_NAME=Rekha Bhumi Nusantara
+env = APP_URL=http://api.testing.id/rekhabhumi
+env = FLASK_ENV=development
+env = DB_HOST=127.0.0.1
+env = DB_PORT=3306
+env = DB_USER=kode_wilayah
+env = DB_NAME=kode_wilayah
+env = DB_PASSWORD=K6FNYQ42%%ry1Ym
+env = SECRET_KEY=secret!!!
+
+# Lokasi log untuk debugging jika ada error
+logto = /var/log/uwsgi/kode_wilayah.log
+logfile-chmod = 644

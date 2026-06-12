@@ -1,25 +1,27 @@
-# kode-wilayah
+# Rekha Bhumi Nusantara
 
-Aplikasi API Python untuk menyediakan layanan kode wilayah Republik Indonesia.
+**Rheka Bhumi Nusantara** (bahasa Sansekerta, **Rekha** yang berarti garis/coretan, **Bhumi** yang berarti tanah/wilayah, dan **Nusantara** atau Nusa Antara yang berarti Indonesia) adalah _Application Programming Interface_ (API) yang akan memberikan kode wilayah resmi Republik Indonesia berdasarkan Keputusan Menteri Dalam Negeri (KEPMENDAGRI) yang berlaku saat ini. Sistematika kode wilayah ini dibuat berdasarkan hirarki wilayah dari provinsi, kota/kabupaten, kecamatan, hingga desa/kelurahan, sehingga dapat langsung diakses dan digunakan dalam aplikasi dengan pilihan berbentuk SELECT.
+<div align="center"><img src="rekha-bhumi-logo.png" alt="Logo Rekha Bhumi" width="200" />
+</div>
 
 ## Deskripsi
 
-Kode Wilayah adalah identitas resmi berupa serangkaian angka (numerik) yang merepresentasikan setiap tingkatan wilayah administrasi pemerintahan di Indonesia. Kode Wilayah ini secar resmi dikelola oleh **Kementerian Dalam Negeri** (Kemendagri), kode ini berfungsi sebagai standar nasional untuk pendataan penduduk, perencanaan pembangunan, dan pelayanan publik agar seragam di seluruh instansi.
+Kode Wilayah adalah identitas resmi berupa serangkaian angka (numerik) yang merepresentasikan setiap tingkatan wilayah administrasi pemerintahan di Indonesia. Kode Wilayah ini secara resmi dikelola oleh **Kementerian Dalam Negeri** (Kemendagri), dan berfungsi sebagai standar nasional untuk pendataan penduduk, perencanaan pembangunan, dan pelayanan publik agar seragam di seluruh instansi.
 
-Bagi pengembang aplikasi, kode wilayah bukan sekadar angka formalitas, melainkan standar data *(Single Source of Truth)* yang sangat krusial untuk mengelola database lokasi pengguna.
+Bagi pengembang aplikasi, kode wilayah bukan sekadar angka formalitas, melainkan standar data **(Single Source of Truth)** yang sangat krusial untuk mengelola database lokasi pengguna.
 
 Berikut adalah fungsi utamanya dalam pengembangan aplikasi:
 
 1. **Standarisasi dan Validasi Data (Data Integrity).**
 Tanpa kode wilayah, pengguna mungkin menulis alamat dengan cara berbeda-beda (misal: "Jaksel", "Jakarta Selatan", atau "DKI Jakarta"). Dengan kode wilayah (seperti 31.74), aplikasi akan memastikan input lokasi seragam sesuai standar Kemendagri/BPS dan mempermudah proses filter dan pencarian (pencarian berbasis angka jauh lebih cepat dan akurat daripada pencarian berbasis teks/string).
 2. **Fitur "Cascading Dropdown" (Alamat Bertingkat).**
-Pada formulir pendaftaran, kode wilayah digunakan untuk logika relasional. Sebagai contoh, saat pengguna memilih Provinsi (misal: 32 - Jawa Barat), aplikasi secara otomatis hanya akan memunculkan daftar Kabupaten/Kota yang kode awalnya 32.XX. Hal ini mencegah kesalahan input, seperti pengguna memilih Provinsi Jawa Barat tapi memilih Kota Surabaya.
+Pada formulir pendaftaran, kode wilayah digunakan untuk logika relasional. Sebagai contoh, saat pengguna memilih Provinsi (misal: 32 - Jawa Barat), aplikasi dapat secara otomatis hanya akan memunculkan daftar Kabupaten/Kota yang kode awalnya 32.XX. Hal ini mencegah kesalahan input, seperti pengguna memilih Provinsi Jawa Barat tapi memilih Kota Surabaya.
 3. **Pemetaan Layanan dan Distribusi (Geofencing Logis).**
 Pada aplikasi yang memiliki fitur layanan fisik (seperti e-commerce atau pesan antar), maka dengan sangat mudah bisa mengatur ongkir atau ketersediaan stok berdasarkan kode wilayah tertentu. Selain itu dapat sebagai analisa pengguna dengan memetakan di wilayah mana (kode wilayah mana) akun paling aktif tanpa harus memproses koordinat GPS yang rumit.
 4. **Keamanan dan Verifikasi Akun.**
 Beberapa aplikasi finansial atau legal menggunakan kode wilayah untuk *cross-check* NIK. Misalkan memvalidasi apakah 6 digit pertama NIK yang diinput pengguna sesuai dengan data lokasi (Provinsi/Kota/Kecamatan) yang mereka klaim di profil. Selain itu, dapat juga sebagai pendeteksi anomali. Yaitu jika sebuah akun terdaftar dengan kode wilayah Papua tetapi melakukan transaksi yang tidak biasa di wilayah lain, sistem akan dengan mudah bisa memberikan peringatan keamanan.
 
-Aplikasi ini dibuat agar masyarakat, pengembang, dan pihak lain dapat dengan mudah mengakses informasi kode wilayah administratif Indonesia. Data yang digunakan disusun menurut format kode wilayah resmi dan terus dirawat ketika ada pembaruan dari keputusan Mendagri.
+**Rekha Bhumi** ini dibuat agar masyarakat, pengembang, dan pihak lain dapat dengan mudah mengakses informasi kode wilayah administratif Indonesia. Data yang digunakan disusun menurut format kode wilayah resmi dan akan terus dirawat ketika ada pembaruan dari keputusan Mendagri.
 
 ## Struktur Kode Wilayah Kemendagri
 
@@ -46,6 +48,7 @@ API juga akan menyediakan pencarian berupa regex baik dari kode wilayah maupun d
 ## Struktur Proyek
 
 - `src/api/` : tempat kode sumber API berada.
+- `src/tokenize/` : tempat kode sumber pendaftaran API untuk mendapatkan *API key* berupa token yang harus disertakan dalam 
 - `README.md` : dokumentasi proyek.
 
 ## Pemeliharaan

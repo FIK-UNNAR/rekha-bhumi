@@ -1,0 +1,89 @@
+{% extends '/layouts/main.html' %}
+
+{% block isi_konten %}
+        <div class="max-w-4xl mx-auto my-8 bg-white shadow-md rounded-xl overflow-hidden border border-slate-200">
+            <div class="bg-gradient-to-r from-slate-900 to-slate-800 px-8 py-10 text-white text-center">
+                <h4 class="text-3xl font-medium text-slate-900 sm:text-4xl tracking-tight leading-tight text-white ">
+                    Ucapan Terima Kasih & Penghargaan
+                </h4>
+                <h1 class="text-4xl font-bold text-slate-900 sm:text-5xl tracking-tight leading-tight text-white">
+                    Rekha Bhumi Nusantara
+                </h1>
+            </div>
+
+    <!-- Konten Utama -->
+    <div class="p-6 md:p-10 space-y-8">
+        <p class="text-justify text-slate-700 leading-relaxed">
+            Pada tahun 2024, tiga mahasiswa <a href="https://upnjatim.ac.id" class="underline hover:font-bold">Universitas Pembangunan Nasional (UPN) "Veteran" Jawa Timur</a> -Billy Thierry Maulana A.F., Adhen Chandra Gilang R., Salsabila Farida Firdaus, dengan pembimbing Ardhon Rakhmadi, S.Tr.T., M.Kom., melakukan magang di PT Radnet Digital Indonesia dan diberi tugas membantu melakukan pencarian kemungkinan <strong>Potensi Konflik Kepemilikan Nama Domain DESA.ID dan Aviability-nya</strong>.<br>
+            Dua tahun kemudian -2026, seorang mahasiswa Universitas Narotama -M. Dicky Tri Pratama dengan pembimbing Moh Noor Al Azam, S.Kom., M.MT., melakukan Kerja Praktek di PT Radnet Digital Indonesia dan mendapat tugas untuk <strong>Pengembangan Layanan API Kode Wilayah</strong> berdasarkan data mentah kode wilayah resmi Indonesia yang digunakan pada magang tahun 2024 di atas. API ini digunakan secara private oleh PT Radnet Digital Indonesia untuk kebutuhan internal.
+        </p>
+        <p class="text-justify text-slate-700 leading-relaxed">
+            Sesuai kesepakatan bersama antara Fakultas Ilmu Komputer -Universitas Narotama, dan PT Radnet Digital Indonesia, serta didasarkan pada kesamaan visi atas kemandirian infrastruktur digital Indonesia, maka hasil Kerja Praktek ini kemudian dijadikan sebagai aplikasi <em>Free/Libre Open Source</em> (F/LOSS) -ditempatkan pada repository GitHub, dan menjadi dasar pengembangan Layanan API publik <strong>Rekha Bhumi Nusantara</strong> -menjadi tonggak pertama dalam penyediaan <strong>API untuk Negeri</strong> oleh FIK Narotama dan PT Radnet Digital Indonesia.
+        </p>
+        <p class="text-justify text-slate-700 leading-relaxed">
+            Oleh karenanya, keberhasilan pengembangan dan penyediaan layanan API Rekha Bhumi Nusantara ini tidak lepas dari dukungan, bimbingan, serta kontribusi dari berbagai pihak. Kami ingin menyampaikan apresiasi dan terima kasih yang sebesar-besarnya kepada:
+        </p>
+
+        <!-- Kategori 1: Institusi / Sponsor Utama -->
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-slate-900 uppercase tracking-wider border-b border-slate-200 pb-1">
+                Institusi & Mitra Strategis
+            </h2>
+            <ul class="list-disc pl-6 space-y-1.5 text-slate-600 text-sm">
+                <li><a href=https://narotama.ac.id class="underline hover:font-bold">Universitas Narotama</a> beserta seluruh Civitas Academy, pada umummya.</li>
+                <li><a href=https://fik.narotama.ac.id class="underline hover:font-bold">Fakultas Ilmu Komputer</a> -Universitas Narotama, beserta seluruh civitas academy, pada khususnya. </li>
+                <li><a href="https://radnet-digital.id" class="underline hover:font-bold">Radnet Digital Indonesia</a>, atas perkenan penelitian dan bantuan pinjaman servernya</li>
+            </ul>
+        </section>
+
+        <!-- Kategori 2: Tim Teknis / Kontributor Kode -->
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-slate-900 uppercase tracking-wider border-b border-slate-200 pb-1">
+                Tim Pengembang & Penasihat Teknis
+            </h2>
+            <!-- Menggunakan grid 2 kolom agar muat banyak nama tanpa memanjang ke bawah -->
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-1.5 list-disc pl-6 text-slate-600 text-sm">
+                <li>Moh Noor Al Azam, S.Kom., M.MT. (versi 1)</li>
+                <li>M. Dicky Tri Pratama (versi 1)</li>
+            </ul>
+        </section>
+
+        <!-- Kategori 3: Penyedia Data / Komunitas -->
+        <section class="space-y-3">
+            <h2 class="text-base font-bold text-slate-900 uppercase tracking-wider border-b border-slate-200 pb-1">
+                Penyedia Data & Dukungan Komunitas
+            </h2>
+            <ul class="list-disc pl-6 space-y-1.5 text-slate-600 text-sm">
+                <li>Data Kode Wilayah dari <a href="https://github.com/cahyadsn/wilayah" class="underline hover:font-bold" target="_">https://github.com/cahyadsn/wilayah</a></li>
+                <li>Seluruh pengembang dan pengguna akhir yang telah memberikan umpan balik (<em>feedback</em>) berharga demi perbaikan API ini.</li>
+            </ul>
+        </section>
+
+        <!-- Bagian Grid Logo Institusi Berjasa -->
+        <section class="pt-6 border-t border-slate-200 space-y-4">
+            <div class="text-center">
+                <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-widest">
+                    Dikembangkan dan Didukung Oleh
+                </h3>
+            </div>
+            
+            <!-- Grid Wadah Logo (Otomatis responsif: 2 kolom di HP, 4 kolom di laptop) -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 items-center justify-items-center pt-2">
+                
+                <!-- Logo 1 (Contoh: Universitas) -->
+                <div class="flex items-center justify-center h-16 w-full p-2 bg-slate-50 rounded-lg border border-slate-100 transition duration-300">
+                    <img class="max-h-20 max-w-full object-contain" src="{{ url_for('rekhabhumi.static', filename='images/narotama-logo.svg') }}" alt="Logo Narotama">
+                </div>
+
+                <!-- Logo 2 -->
+                <div class="flex items-center justify-center h-16 w-full p-2 bg-slate-50 rounded-lg border border-slate-100 transition duration-300">
+                    <img class="max-h-20 max-w-full object-contain" src="{{ url_for('rekhabhumi.static', filename='images/fik-logo.svg') }}" alt="Logo FIK">
+                </div>
+
+                <!-- Logo 3 -->
+                <div class="flex items-center justify-center h-16 w-full p-2 bg-slate-50 rounded-lg border border-slate-100 transition duration-300">
+                    <img class="max-h-20 max-w-full object-contain" src="{{ url_for('rekhabhumi.static', filename='images/radneXt-logo.png') }}" alt="Logo RDI">
+                </div>
+            </div>
+        </section>
+{% endblock %}
