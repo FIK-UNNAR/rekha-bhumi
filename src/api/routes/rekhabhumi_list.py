@@ -40,14 +40,16 @@ def list_provinsi():
             'code': '200',
             'request': '/list/',
             'total': len(rows),
-            'message': rows}), 200
+            'message': rows
+        }), 200
     except Exception as e:
         return jsonify({
             'status': 'ERROR',
             'code': '500',
             'request': '/list/',
             'total': 0,
-            'message': str(e)}), 500
+            'message': str(e)
+        }), 500
     finally:
         db.close()
 

@@ -18,14 +18,6 @@ def log_request_info():
         # Nanti dipasang authorization di sini
         pass
 
-    """
-    Contoh:
-    /rekhabhumi/wilayah/35
-    /rekhabhumi/wilayah/35.78
-    /rekhabhumi/wilayah/35.78.01
-    /rekhabhumi/wilayah/35.78.01.1001
-    """
-
 @rekhabhumi_wilayah_bp.route('/', methods=['GET'], strict_slashes=False)
 def get_wilayah_root():
     return jsonify({
@@ -36,13 +28,25 @@ def get_wilayah_root():
         'message': f'Format request_id tidak valid. Perhatikan format end-point. Lihat contoh di {Config.APP_URL}'
     }), 400
 
-@rekhabhumi_wilayah_bp.route('/<req_id:kode>', methods=['GET'])
-def get_wilayah(kode):
+@rekhabhumi_wilayah_bp.route('/<req_id:request_id>', methods=['GET'])
+def get_wilayah(request_id):
 
-    bagian = kode.split('.')
+    bagian = request_id.split('.')
 
     try:
         db = get_db()
+        cur = db.cursor()
+        cur.execute("SELECT nama FROM wilayah WHERE kode=%s LIMIT 1",(request_id.strip(),))
+        row = cur.fetchone()
+        if row == None :
+            return jsonify({
+                'status': 'NOT_FOUND',
+                'code': '404',
+                'request': f'/list/{request_id}',
+                'total': 0,
+                'message': 'Data tidak ditemukan. Mohon informasikan ke admin.'
+            }), 404
+
         with db.cursor() as cur:
             hasil = {}
             # Provinsi
@@ -51,9 +55,12 @@ def get_wilayah(kode):
 
             if not row:
                 return jsonify({
-                    "status": "error",
-                    "message": "Data tidak ditemukan"
-                }), 404
+                'status': 'NOT_FOUND',
+                'code': '404',
+                'request': '/list/',
+                'total': 0,
+                'message': 'Data tidak ditemukan. Mohon informasikan ke admin.'
+            }), 404
 
             hasil["Provinsi"] = row["nama"]
 
@@ -94,18 +101,28 @@ def get_wilayah(kode):
                 row = cur.fetchone()
 
                 if row:
-                    hasil["Kelurahan"] = row["nama"]
-
+                    hasil["Kelurahan_Desa"] = row["nama"]
         return jsonify({
-            "status": "success",
-            "wilayah": hasil
-        })
+                'status': 'SUCCESS',
+                'code': '200',
+                'request': f'/wilayah/{request_id}',
+                'total': len(hasil),
+                'message': hasil
+            }), 200
+
+#        return jsonify({
+#            "status": "success",
+#            "wilayah": hasil
+#        })
 
     except Exception as e:
         return jsonify({
-            "status": "error",
-            "message": str(e)
-        }), 500
+            'status': 'ERROR',
+            'code': '500',
+            'request': '/list/',
+            'total': 0,
+            'message': str(e)
+            }), 500
 
 @rekhabhumi_wilayah_bp.route('/<string:request_id>', methods=['GET'], strict_slashes=False)
 def get_wilayah_sink_home(request_id):
