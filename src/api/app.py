@@ -23,7 +23,7 @@ class RequestIdConverter(BaseConverter):
     regex = r'^(?:\d{2}|\d{2}\.\d{2}|\d{2}\.\d{2}\.\d{2}|\d{2}\.\d{2}\.\d{2}\.\d{4})$'
 
 app.url_map.converters['req_id'] = RequestIdConverter
-app.register_blueprint(rekhabhumi_bp, url_prefix='/rekhabhumi/')
+app.register_blueprint(rekhabhumi_bp, url_prefix='/rekhabhumi')
 app.register_blueprint(rekhabhumi_wilayah_bp, url_prefix='/rekhabhumi/wilayah')
 app.register_blueprint(rekhabhumi_list_bp, url_prefix='/rekhabhumi/list')
 
