@@ -39,14 +39,14 @@
                 <a href="dokumentasi" class="hover:text-slate-900 transition">Dokumentasi</a>
                 <a href="release_note" class="hover:text-slate-900 transition"><em>Release Notes</em></a>
                 <!--a href="#" class="hover:text-slate-900 transition">Status Sistem</a>
-                <a href="/dashboard" class="hover:text-slate-900 transition">Dashboard</a>
+                <a href="/dashboard" class="hover:text-slate-900 transition">Dashboard</a-->
             </nav>
-            <div class="hidden md:flex items-center space-x-4">
+            <!--div class="hidden md:flex items-center space-x-4">
                 <a href="/login" class="text-sm font-semibold text-slate-700 hover:text-slate-900 transition">Masuk</a>
                 <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-sm">
                     Mulai Integrasi
                 </a>
-            </div>
+            </div--->
             <div class="flex items-center md:hidden">
                 <button id="tombol-menu" type="button" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2 rounded-md hover:bg-slate-100">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -54,7 +54,7 @@
                         <path id="icon-silang" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-            </div-->
+            </div>
         </div>
         <div id="menu-mobile" class="hidden md:hidden absolute right-2 w-full max-w-xs border rounded-b-xl border-t border-slate-200 bg-white/90 px-4 pt-2 pb-4 space-y-1 shadow-lg animate-fadeIn">
             <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 bg-blue-50">Dokumentasi</a>
@@ -80,7 +80,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex flex-col sm:flex-row items-center justify-between text-sm text-slate-500">
             <!-- Hak Cipta -->
             <div class="mb-1 sm:mb-0">
-                <a href="https://unnar.id" class="hover:text-slate-900 hover:underline transition">Rekha Bhumi Nusantara</a> &copy; 2026 by <a href="https://fasilkom.narotama.ac.id" class="hover:text-slate-900 hover:underline transition">FIK - Narotama</a>
+                <a href="{{aplikasi_url}}" class="font-medium underline hover:font-semibold">{{nama_aplikasi}}</a> bagian dari <a href="https://api.unnar.id" class="font-medium underline hover:font-semibold">API untuk Negeri</a> &copy; 2026 oleh <a href="https://fasilkom.narotama.ac.id" class="font-medium underline hover:font-semibold">FIK - Narotama</a>
             </div>
             <!-- Tautan Kebijakan/Bantuan -->
             <div class="flex space-x-6">
