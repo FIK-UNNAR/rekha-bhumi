@@ -1,76 +1,6 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{nama_aplikasi}}</title>
-    <!-- Memuat Tailwind CSS via CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Memuat ikon FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Memuat font dari Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Display:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <style>
-        body, html {
-            height: 100%;
-            font-family: 'Barlow Condensed', Arial, Helvetica, sans-serif;
-            background-color: #ffffff;
-        }
-    </style>
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <meta property="og:title" content="{{nama_aplikasi}}" />
-    <meta property="og:description" content="Rekha Bhumi Nusantara adalah API yang menyediakan kode wilayah resmi Indonesia berdasarkan KEPMENDAGRI, dengan struktur hirarki provinsi, kota/kabupaten, kecamatan, hingga desa/kelurahan untuk integrasi mudah dalam aplikasi." />
-    <meta property="og:image" content="https://api.unnar.id/rekhabhumi/admin/assets/images/logo.png" />
-    <meta property="og:url" content="https://api.unnar.id/rekhabhumi/" />
-</head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <a href="/rekhabhumi/" class="text-xl font-bold text-unnar-dark hover:text-unnar-accent transition">
-                    <img src="admin/assets/images/logo.png" alt="Logo RIMS" class="h-20 w-auto object-contain">
-                </a>
-            </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-                <a href="#" class="text-blue-600 hover:text-blue-700 transition">Dokumentasi</a>
-                <a href="#" class="hover:text-slate-900 transition"><em>End-point</em></a>
-                <a href="#" class="hover:text-slate-900 transition">Status Sistem</a>
-                <a href="/dashboard" class="hover:text-slate-900 transition">Dashboard</a>
-            </nav>
-            <div class="hidden md:flex items-center space-x-4">
-                <a href="/login" class="text-sm font-semibold text-slate-700 hover:text-slate-900 transition">Masuk</a>
-                <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-sm">
-                    Mulai Integrasi
-                </a>
-            </div>
-            <div class="flex items-center md:hidden">
-                <button id="tombol-menu" type="button" class="text-slate-600 hover:text-slate-900 focus:outline-none p-2 rounded-md hover:bg-slate-100">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path id="icon-garis" class="block" stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        <path id="icon-silang" class="hidden" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <div id="menu-mobile" class="hidden md:hidden absolute right-2 w-full max-w-xs border rounded-b-xl border-t border-slate-200 bg-white/90 px-4 pt-2 pb-4 space-y-1 shadow-lg animate-fadeIn">
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Dokumentasi</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900"><em>End-point</em></a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">Status Sistem</a>
-            <a href="/dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">Dashboard</a>
-            <div class="border-t border-slate-100 my-2 pt-2 space-y-2">
-                <a href="/login" class="block text-center px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50">Masuk</a>
-                <a href="#" class="block text-center bg-blue-600 hover:bg-blue-700 text-white text-base font-medium px-4 py-2 rounded-lg transition shadow-sm">
-                    Mulai Integrasi
-                </a>
-            </div>
-        </div>
-    </header>
+{% extends '/layouts/main.html' %}
 
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col justify-center">
+{% block isi_konten %}
         <div class="max-w-4xl mx-auto my-8 bg-white shadow-md rounded-xl overflow-hidden border border-slate-200">
             <div class="bg-gradient-to-r from-slate-900 to-slate-800 px-8 py-10 text-white text-center">
                 <h4 class="text-3xl font-medium text-slate-900 sm:text-4xl tracking-tight leading-tight text-white ">
@@ -84,11 +14,11 @@
     <!-- Konten Utama -->
     <div class="p-6 md:p-10 space-y-8">
         <p class="text-justify text-slate-700 leading-relaxed">
-            Pada tahun 2024, tiga mahasiswa Universitas Pembangunan Nasional (UPN) "Veteran" Jawa Timur -Billy Thierry Maulana A.F., Adhen Chandra Gilang R., Salsabila Farida Firdaus, dengan pembimbing Ardhon Rakhmadi, S.Tr.T., M.Kom., melakukan magang di PT Radnet Digital Indonesia dan diberi tugas membantu melakukan pencarian kemungkinan <strong>Potensi Konflik Kepemilikan Nama Domain DESA.ID dan Aviability-nya</strong>.<br>
-            Dua tahun kemudian -2026, seorang mahasiswa Universitas Narotama -M. Dicky Tri Pratama dengan pembimbing Moh Noor Al Azam, S.Kom., M.MT., melakukan Kerja Praktek di PT Radnet Digital Indonesia dan mendapat tugas untuk mengembangkan layanan API berdasarkan data mentah kode wilayah resmi Indonesia yang digunakan pada magang tahun 2024 di atas. API ini digunakan secara private oleh PT Radnet Digital Indonesia untuk kebutuhan internal.
+            Pada tahun 2024, tiga mahasiswa <a href="https://upnjatim.ac.id" class="underline hover:font-bold">Universitas Pembangunan Nasional (UPN) "Veteran" Jawa Timur</a> -Billy Thierry Maulana A.F., Adhen Chandra Gilang R., Salsabila Farida Firdaus, dengan pembimbing Ardhon Rakhmadi, S.Tr.T., M.Kom., melakukan magang di PT Radnet Digital Indonesia dan diberi tugas membantu melakukan pencarian kemungkinan <strong>Potensi Konflik Kepemilikan Nama Domain DESA.ID dan Aviability-nya</strong>.<br>
+            Dua tahun kemudian -2026, seorang mahasiswa Universitas Narotama -M. Dicky Tri Pratama dengan pembimbing Moh Noor Al Azam, S.Kom., M.MT., melakukan Kerja Praktek di PT Radnet Digital Indonesia dan mendapat tugas untuk <strong>Pengembangan Layanan API Kode Wilayah</strong> berdasarkan data mentah kode wilayah resmi Indonesia yang digunakan pada magang tahun 2024 di atas. API ini digunakan secara private oleh PT Radnet Digital Indonesia untuk kebutuhan internal.
         </p>
         <p class="text-justify text-slate-700 leading-relaxed">
-            Sesuai kesepakatan bersama antara Fakultas Ilmu Komputer -Universitas Narotama, dan PT Radnet Digital Indonesia, serta didasarkan pada kesamaan visi kemandirian infrastruktur digital Indonesia, maka hasil Kerja Praktek ini kemudian dijadikan sebagai aplikasi <em>Free/Libre Open Source</em> (F/LOSS) -ditempatkan pada repository GitHub, dan menjadi dasar pengembangan Layanan API publik <strong>Rekha Bhumi Nusantara</strong> -menjadi tonggak pertama dalam penyediaan <strong>API untuk Negeri</strong> oleh FIK Narotama dan PT Radnet Digital Indonesia.
+            Sesuai kesepakatan bersama antara Fakultas Ilmu Komputer -Universitas Narotama, dan PT Radnet Digital Indonesia, serta didasarkan pada kesamaan visi atas kemandirian infrastruktur digital Indonesia, maka hasil Kerja Praktek ini kemudian dijadikan sebagai aplikasi <em>Free/Libre Open Source</em> (F/LOSS) -ditempatkan pada repository GitHub, dan menjadi dasar pengembangan Layanan API publik <strong>Rekha Bhumi Nusantara</strong> -menjadi tonggak pertama dalam penyediaan <strong>API untuk Negeri</strong> oleh FIK Narotama dan PT Radnet Digital Indonesia.
         </p>
         <p class="text-justify text-slate-700 leading-relaxed">
             Oleh karenanya, keberhasilan pengembangan dan penyediaan layanan API Rekha Bhumi Nusantara ini tidak lepas dari dukungan, bimbingan, serta kontribusi dari berbagai pihak. Kami ingin menyampaikan apresiasi dan terima kasih yang sebesar-besarnya kepada:
@@ -125,7 +55,7 @@
             </h2>
             <ul class="list-disc pl-6 space-y-1.5 text-slate-600 text-sm">
                 <li>Data Kode Wilayah dari <a href="https://github.com/cahyadsn/wilayah" class="underline hover:font-bold" target="_">https://github.com/cahyadsn/wilayah</a></li>
-                <li>Seluruh pengembang dan pengguna akhir yang telah memberikan umpan balik (feedback) berharga demi perbaikan API ini.</li>
+                <li>Seluruh pengembang dan pengguna akhir yang telah memberikan umpan balik (<em>feedback</em>) berharga demi perbaikan API ini.</li>
             </ul>
         </section>
 
@@ -133,7 +63,7 @@
         <section class="pt-6 border-t border-slate-200 space-y-4">
             <div class="text-center">
                 <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-widest">
-                    Didukung & Dikembangkan Oleh
+                    Dikembangkan dan Didukung Oleh
                 </h3>
             </div>
             
@@ -141,73 +71,19 @@
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 items-center justify-items-center pt-2">
                 
                 <!-- Logo 1 (Contoh: Universitas) -->
-                <div class="flex items-center justify-center h-16 w-full p-2 bg-slate-50 rounded-lg border border-slate-100 filter grayscale hover:grayscale-0 transition duration-300">
-                    <!-- Ganti src dengan link logo asli Anda -->
-                    <img class="max-h-12 max-w-full object-contain" src="https://via.placeholder.com/150x50?text=LOGO+UNIV" alt="Logo Institusi 1">
+                <div class="flex items-center justify-center h-16 w-full p-2 bg-slate-50 rounded-lg border border-slate-100 transition duration-300">
+                    <img class="max-h-20 max-w-full object-contain" src="{{ url_for('rekhabhumi.static', filename='images/narotama-logo.svg') }}" alt="Logo Narotama">
                 </div>
 
                 <!-- Logo 2 -->
-                <div class="flex items-center justify-center h-16 w-full p-2 bg-slate-50 rounded-lg border border-slate-100 filter grayscale hover:grayscale-0 transition duration-300">
-                    <img class="max-h-12 max-w-full object-contain" src="https://via.placeholder.com/150x50?text=LOGO+MITRA" alt="Logo Institusi 2">
+                <div class="flex items-center justify-center h-16 w-full p-2 bg-slate-50 rounded-lg border border-slate-100 transition duration-300">
+                    <img class="max-h-20 max-w-full object-contain" src="{{ url_for('rekhabhumi.static', filename='images/fik-logo.svg') }}" alt="Logo FIK">
                 </div>
 
                 <!-- Logo 3 -->
-                <div class="flex items-center justify-center h-16 w-full p-2 bg-slate-50 rounded-lg border border-slate-100 filter grayscale hover:grayscale-0 transition duration-300">
-                    <img class="max-h-12 max-w-full object-contain" src="https://via.placeholder.com/150x50?text=LOGO+KOMUNITAS" alt="Logo Institusi 3">
+                <div class="flex items-center justify-center h-16 w-full p-2 bg-slate-50 rounded-lg border border-slate-100 transition duration-300">
+                    <img class="max-h-20 max-w-full object-contain" src="{{ url_for('rekhabhumi.static', filename='images/radneXt-logo.png') }}" alt="Logo RDI">
                 </div>
-
-                <!-- Logo 4 -->
-                <div class="flex items-center justify-center h-16 w-full p-2 bg-slate-50 rounded-lg border border-slate-100 filter grayscale hover:grayscale-0 transition duration-300">
-                    <img class="max-h-12 max-w-full object-contain" src="https://via.placeholder.com/150x50?text=LOGO+SPONSOR" alt="Logo Institusi 4">
-                </div>
-
             </div>
         </section>
-
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-slate-50 border-t border-slate-200 px-8 py-4 text-center text-xs text-slate-500">
-        <p>Terima kasih kepada seluruh pihak yang terus mendukung keberlanjutan inovasi digital untuk negeri.</p>
-    </footer>
-</div>
-    </main>
-
-    <!-- FOOTER (Akan selalu berada di posisi paling bawah, menggunakan border-t halus) -->
-    <footer class="bg-white border-t border-slate-200 w-full mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex flex-col sm:flex-row items-center justify-between text-sm text-slate-500">
-            <!-- Hak Cipta -->
-            <div class="mb-1 sm:mb-0">
-                <a href="https://unnar.id" class="hover:text-slate-900 hover:underline transition">Rekha Bhumi Nusantara</a> &copy; 2026 by <a href="https://fasilkom.narotama.ac.id" class="hover:text-slate-900 hover:underline transition">FIK - Narotama</a>
-            </div>
-            <!-- Tautan Kebijakan/Bantuan -->
-            <div class="flex space-x-6">
-                <a href="privasi" class="hover:text-slate-900 transition">Kebijakan Privasi</a>
-                <a href="layanan" class="hover:text-slate-900 transition">Ketentuan Layanan</a>
-                <a href="acknowledgements" class="hover:text-slate-900 transition"><em>Acknowledgements</em></a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-    const tombolMenu = document.getElementById('tombol-menu');
-    const menuMobile = document.getElementById('menu-mobile');
-    const iconGaris = document.getElementById('icon-garis');
-    const iconSilang = document.getElementById('icon-silang');
-
-    tombolMenu.addEventListener('click', () => {
-        // Toggle class 'hidden' untuk memunculkan/menyembunyikan menu
-        const isMenuTerbuka = !menuMobile.classList.toggle('hidden');
-        
-        // Ubah icon berdasarkan status menu
-        if (isMenuTerbuka) {
-            iconGaris.classList.replace('block', 'hidden');
-            iconSilang.classList.replace('hidden', 'block');
-        } else {
-            iconGaris.classList.replace('hidden', 'block');
-            iconSilang.classList.replace('block', 'hidden');
-        }
-    });
-</script>
-</body>
-</html>
+{% endblock %}
