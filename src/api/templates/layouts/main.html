@@ -18,6 +18,13 @@
             font-family: 'Barlow Condensed', Arial, Helvetica, sans-serif;
             background-color: #ffffff;
         }
+        a:link {
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        a:hover {
+            font-weight: 700;
+        }
     </style>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
@@ -36,8 +43,8 @@
                 </a>
             </div>
             <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-                <a href="dokumentasi" class="hover:text-slate-900 transition">Dokumentasi</a>
-                <a href="release_note" class="hover:text-slate-900 transition"><em>Release Notes</em></a>
+                <a href="dokumentasi">Dokumentasi</a>
+                <a href="release_note"><em>Release Notes</em></a>
                 <!--a href="#" class="hover:text-slate-900 transition">Status Sistem</a>
                 <a href="/dashboard" class="hover:text-slate-900 transition">Dashboard</a-->
             </nav>
@@ -57,8 +64,8 @@
             </div>
         </div>
         <div id="menu-mobile" class="hidden md:hidden absolute right-2 w-full max-w-xs border rounded-b-xl border-t border-slate-200 bg-white/90 px-4 pt-2 pb-4 space-y-1 shadow-lg animate-fadeIn">
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 bg-blue-50">Dokumentasi</a>
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900"><em>End-point</em></a>
+            <a href="dokumentasi" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900">Dokumentasi</a>
+            <a href="release_note" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-blue-50 hover:text-slate-900"><em>End-point</em></a>
             <!--a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">Status Sistem</a>
             <a href="/dashboard" class="block px-3 py-2 rounded-md text-base font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900">Dashboard</a>
             <div class="border-t border-slate-100 my-2 pt-2 space-y-2">
@@ -80,13 +87,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex flex-col sm:flex-row items-center justify-between text-sm text-slate-500">
             <!-- Hak Cipta -->
             <div class="mb-1 sm:mb-0">
-                <a href="{{aplikasi_url}}" class="font-medium underline hover:font-semibold">{{nama_aplikasi}}</a> bagian dari <a href="https://api.unnar.id" class="font-medium underline hover:font-semibold">API untuk Negeri</a> &copy; 2026 oleh <a href="https://fasilkom.narotama.ac.id" class="font-medium underline hover:font-semibold">FIK - Narotama</a>
+                <a href="{{aplikasi_url}}">{{nama_aplikasi}}</a> bagian dari <a href="https://api.unnar.id">API untuk Negeri</a> &copy; 2026 oleh <a href="https://fasilkom.narotama.ac.id" class="font-medium underline hover:font-semibold">FIK - Narotama</a>
             </div>
             <!-- Tautan Kebijakan/Bantuan -->
             <div class="flex space-x-6">
-                <a href="privasi" class="hover:text-slate-900 transition">Kebijakan Privasi</a>
-                <a href="layanan" class="hover:text-slate-900 transition">Ketentuan Layanan</a>
-                <a href="acknowledgements" class="hover:text-slate-900 transition"><em>Acknowledgements</em></a>
+                <a href="privasi">Kebijakan Privasi</a>
+                <a href="layanan">Ketentuan Layanan</a>
+                <a href="acknowledgements"><em>Acknowledgements</em></a>
             </div>
         </div>
     </footer>
